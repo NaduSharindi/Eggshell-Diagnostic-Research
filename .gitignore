@@ -14,3 +14,18 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Raw and cropped egg images are large and are not redistributed
+Artefact/data/images/
+Artefact/data/raw/
+
+# Generated artefacts
+Artefact/data/processed/master_table.csv
+Artefact/models/*.pt
+Artefact/models/*.pth
+Artefact/**/__pycache__/
+Artefact/.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Keep results (figures and tables ARE committed - they are thesis evidence)
+!Artefact/results/**
