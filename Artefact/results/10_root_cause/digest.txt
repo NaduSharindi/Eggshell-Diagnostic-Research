@@ -1,0 +1,26 @@
+======================================================================
+NOTEBOOK 10 DIGEST -- ROOT-CAUSE ENGINE
+======================================================================
+generated: 2026-10-09T23:28:51
+rule coverage: 9/9 | detection threshold 0.3
+
+ERROR PROPAGATION (eggs both annotated and predicted as cracked)
+   n_both_cracked                 51
+   pattern_accuracy               0.8235
+   pct_exact_attribution          82.4
+   mean_abs_error_phys_pct        4.8
+   median_abs_error_phys_pct      0.0
+   max_abs_error_phys_pct         45.0
+   pct_dominant_cause_flipped     13.7
+   n_dominant_flipped             7
+   n_false_alarm_diagnoses        11
+   n_missed_cracks                0
+
+low-confidence flags (<0.6): 18 of 98
+
+MOST SEVERE CONFUSIONS (mean shift in physiological %)
+   Star      -> Network   shift  40.0 pts, flips dominant cause in 3/3 age classes
+   Network   -> Star      shift  40.0 pts, flips dominant cause in 3/3 age classes
+   Hairline  -> Star      shift  20.0 pts, flips dominant cause in 1/3 age classes
+   Hairline  -> Network   shift  20.0 pts, flips dominant cause in 2/3 age classes
+======================================================================

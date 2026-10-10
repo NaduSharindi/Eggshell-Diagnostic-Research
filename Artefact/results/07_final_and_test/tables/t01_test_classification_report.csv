@@ -1,0 +1,8 @@
+,precision,recall,f1-score,support
+Intact,0.975,0.83,0.897,47.0
+Hairline,0.643,0.818,0.72,22.0
+Star,0.75,0.818,0.783,11.0
+Network,0.778,0.778,0.778,18.0
+accuracy,0.816,0.816,0.816,0.816
+macro avg,0.786,0.811,0.794,98.0
+weighted avg,0.839,0.816,0.822,98.0

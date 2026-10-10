@@ -1,0 +1,4 @@
+method,n,pointing_game,energy_inside,energy_median,iou_topk,chance_energy,energy_lift_over_chance
+segmentation,51,0.7647,0.5128,0.4983,0.427,0.0518,9.9
+gradcam,51,0.549,0.2034,0.1301,0.2996,0.0518,3.93
+gradcampp,51,0.5098,0.1781,0.118,0.2632,0.0518,3.44

@@ -1,0 +1,3 @@
+,stratified folds,session-grouped,classical (grouped),acquisition floor (grouped),generalisation gap
+four-class,0.7431,0.7371,0.473,0.307,0.006
+binary,0.8717,0.8878,0.662,0.607,-0.0161

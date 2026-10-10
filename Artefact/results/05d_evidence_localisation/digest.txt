@@ -1,0 +1,19 @@
+======================================================================
+NOTEBOOK 05d DIGEST -- EVIDENCE LOCALISATION
+======================================================================
+generated: 2026-10-09T11:16:34
+
+   clean (whole egg)                    4cls 0.7431  bin 0.8717  frame kept 100%
+   crack occluded 0.45                  4cls 0.7121  bin 0.8391  frame kept 80%
+   crack occluded 0.65                  4cls 0.6578  bin 0.833  frame kept 58%
+   crack occluded 0.75                  4cls 0.6396  bin 0.8108  frame kept 44%
+   ONLY the crack kept (0.65)           4cls 0.7656  bin 0.9079  frame kept 42%
+   acquisition floor (no pixels)        4cls 0.295  bin 0.565  frame kept 0%
+
+NECESSITY  (skill lost when the crack is removed): 19%
+SUFFICIENCY (skill retained from the crack alone)  : 105%
+
+PER-CLASS RECALL
+   condition=crack occluded 0.75  Intact=0.767  Hairline=0.672  Star=0.596  Network=0.578
+   condition=only the crack kept  Intact=0.904  Hairline=0.788  Star=0.684  Network=0.678
+======================================================================

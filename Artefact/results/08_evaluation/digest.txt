@@ -1,0 +1,28 @@
+======================================================================
+NOTEBOOK 08 DIGEST -- EVALUATION
+======================================================================
+generated: 2026-10-09T17:32:16  |  n_test = 98
+
+BOOTSTRAP 95% CONFIDENCE INTERVALS
+   four-class macro F1        0.7942  [0.6981, 0.8761]
+   four-class balanced acc    0.8110  [0.7173, 0.8975]
+   four-class accuracy        0.8163  [0.7347, 0.8878]
+   binary macro F1            0.9070  [0.8456, 0.9588]
+   binary ROC-AUC             0.9854  [0.9654, 0.9974]
+   binary PR-AUC              0.9873  [0.9687, 0.9978]
+   detection recall           0.9804  [0.9344, 1.0000]
+   detection specificity      0.8298  [0.7111, 0.9286]
+
+PER CLASS
+   Intact    n=47  F1 0.8966  [0.8192, 0.9574]
+   Hairline  n=22  F1 0.7200  [0.5555, 0.8421]
+   Star      n=11  F1 0.7826  [0.5455, 0.9444]
+   Network   n=18  F1 0.7778  [0.5926, 0.9091]
+
+McNEMAR vs runner-up: {'selected_correct_runner_wrong': 2, 'runner_correct_selected_wrong': 3, 'discordant_pairs': 5, 'p_exact_binomial': 1.0, 'selected_acc': 0.8163, 'runner_up_acc': 0.8265}
+
+CALIBRATION: {'ece': 0.1093, 'mean_brier': 0.0536, 'mean_confidence': 0.8355, 'accuracy': 0.8163}
+zero-missed-crack threshold: 0.3
+
+ERRORS: 18 misclassified of 98
+======================================================================

@@ -1,0 +1,10 @@
+method,pattern,n,pointing,energy,iou
+gradcam,Hairline,22,0.2727,0.0698,0.1277
+gradcam,Network,18,0.6667,0.2969,0.4296
+gradcam,Star,11,0.9091,0.3177,0.4304
+gradcampp,Hairline,22,0.2273,0.069,0.138
+gradcampp,Network,18,0.6667,0.2511,0.3614
+gradcampp,Star,11,0.8182,0.2766,0.353
+segmentation,Hairline,22,0.6818,0.3717,0.2919
+segmentation,Network,18,0.8333,0.6685,0.5696
+segmentation,Star,11,0.8182,0.5401,0.4638

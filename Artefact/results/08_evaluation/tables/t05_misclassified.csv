@@ -1,0 +1,19 @@
+egg_id,annotated,predicted,confidence,age_class,capture_block
+E437,Network,Hairline,0.779,Peak production,6
+E395,Hairline,Network,0.678,Peak production,6
+E402,Star,Hairline,0.675,Late lay,6
+E649,Hairline,Intact,0.668,Early lay,9
+E465,Intact,Hairline,0.66,Late lay,7
+E353,Network,Star,0.642,Peak production,5
+E194,Hairline,Star,0.631,Peak production,2
+E021,Intact,Hairline,0.631,Late lay,0
+E640,Intact,Hairline,0.577,Early lay,9
+E340,Hairline,Network,0.557,Early lay,5
+E536,Intact,Network,0.549,Peak production,8
+E451,Intact,Hairline,0.543,Early lay,6
+E267,Star,Network,0.525,Late lay,4
+E334,Network,Star,0.519,Early lay,5
+E414,Intact,Hairline,0.516,Late lay,6
+E452,Intact,Hairline,0.506,Peak production,6
+E243,Network,Hairline,0.48,Late lay,3
+E233,Intact,Hairline,0.456,Peak production,3

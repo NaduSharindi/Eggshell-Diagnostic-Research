@@ -1,0 +1,22 @@
+======================================================================
+NOTEBOOK 07 DIGEST -- FINAL MODEL AND HELD-OUT TEST
+======================================================================
+generated: 2026-10-09T17:15:41
+model: efficientnet_b0 + multitask_seg, age_mode=none
+trained on all 554 development eggs, [42, 43, 44] seeds, 32 epochs
+
+   four_class_macro_f1        0.7942
+   four_class_balanced_acc    0.811
+   four_class_accuracy        0.8163
+   binary_macro_f1            0.907
+   binary_roc_auc             0.9854
+   binary_pr_auc              0.9873
+   n_test                     98
+   per_seed_macro_f1          [0.794, 0.7724, 0.8098]
+   seed_sd                    0.0188
+
+   params_m                   3.67
+   latency_ms_single_image    4.91
+   checkpoint_mb              15.0
+   gpu                        NVIDIA GeForce RTX 5070
+======================================================================

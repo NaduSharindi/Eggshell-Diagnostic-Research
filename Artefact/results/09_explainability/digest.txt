@@ -1,0 +1,24 @@
+======================================================================
+NOTEBOOK 09 DIGEST -- EXPLAINABILITY
+======================================================================
+generated: 2026-10-09T23:18:28
+test eggs with a polygon: 51  mean polygon area 5.177% of frame
+
+LOCALISATION (higher is better; chance = polygon area fraction)
+   segmentation   pointing 0.765  energy 0.513 (x9.9 chance)  IoU 0.427
+   gradcam        pointing 0.549  energy 0.203 (x3.93 chance)  IoU 0.300
+   gradcampp      pointing 0.510  energy 0.178 (x3.44 chance)  IoU 0.263
+
+BY MORPHOLOGY
+   gradcam        Hairline  n=22  pointing 0.273  energy 0.070
+   gradcam        Network   n=18  pointing 0.667  energy 0.297
+   gradcam        Star      n=11  pointing 0.909  energy 0.318
+   gradcampp      Hairline  n=22  pointing 0.227  energy 0.069
+   gradcampp      Network   n=18  pointing 0.667  energy 0.251
+   gradcampp      Star      n=11  pointing 0.818  energy 0.277
+   segmentation   Hairline  n=22  pointing 0.682  energy 0.372
+   segmentation   Network   n=18  pointing 0.833  energy 0.668
+   segmentation   Star      n=11  pointing 0.818  energy 0.540
+
+SEGMENTATION HEAD vs GRAD-CAM: +0.3094 ± 0.1768, better on 94.1% of eggs, p = 0.0
+======================================================================

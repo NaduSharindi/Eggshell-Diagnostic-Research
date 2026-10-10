@@ -1,0 +1,7 @@
+true_pattern,pred_pattern,mean_shift,max_shift,flips
+Star,Network,40.0,45.0,3
+Network,Star,40.0,45.0,3
+Hairline,Star,20.0,25.0,1
+Hairline,Network,20.0,20.0,2
+Network,Hairline,20.0,20.0,2
+Star,Hairline,20.0,25.0,1

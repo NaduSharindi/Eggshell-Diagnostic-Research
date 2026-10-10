@@ -1,0 +1,4 @@
+metric,image only,image only sd,image + age,image + age sd,paired diff,diff sd,wilcoxon_p,resolvable
+four_class,0.7593,0.045,0.7608,0.027,0.0015,0.0227,1.0,False
+binary,0.8753,0.0382,0.8682,0.0389,-0.007,0.0077,0.25,False
+pattern_only,0.7579,0.062,0.7533,0.0209,-0.0046,0.042,1.0,False

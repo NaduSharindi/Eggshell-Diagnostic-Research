@@ -1,0 +1,76 @@
+{
+  "stage": "05d_evidence_localisation",
+  "generated_at": "2026-10-09T11:16:34",
+  "reference": {
+    "clean_4": 0.7431,
+    "clean_2": 0.8717,
+    "floor_4": 0.295,
+    "floor_2": 0.565,
+    "occ45_4": 0.7121,
+    "occ45_2": 0.8391,
+    "occ65_4": 0.6578,
+    "occ65_2": 0.833
+  },
+  "conditions": [
+    {
+      "condition": "clean (whole egg)",
+      "four_class": 0.7431,
+      "sd": 0.0316,
+      "binary": 0.8717,
+      "frame_kept": "100%"
+    },
+    {
+      "condition": "crack occluded 0.45",
+      "four_class": 0.7121,
+      "sd": 0.0517,
+      "binary": 0.8391,
+      "frame_kept": "80%"
+    },
+    {
+      "condition": "crack occluded 0.65",
+      "four_class": 0.6578,
+      "sd": 0.0463,
+      "binary": 0.833,
+      "frame_kept": "58%"
+    },
+    {
+      "condition": "crack occluded 0.75",
+      "four_class": 0.6396,
+      "sd": 0.0543,
+      "binary": 0.8108,
+      "frame_kept": "44%"
+    },
+    {
+      "condition": "ONLY the crack kept (0.65)",
+      "four_class": 0.7656,
+      "sd": 0.0478,
+      "binary": 0.9079,
+      "frame_kept": "42%"
+    },
+    {
+      "condition": "acquisition floor (no pixels)",
+      "four_class": 0.295,
+      "sd": NaN,
+      "binary": 0.565,
+      "frame_kept": "0%"
+    }
+  ],
+  "sufficiency": 1.05,
+  "necessity": 0.19,
+  "per_pattern": [
+    {
+      "condition": "crack occluded 0.75",
+      "Intact": 0.767,
+      "Hairline": 0.672,
+      "Star": 0.596,
+      "Network": 0.578
+    },
+    {
+      "condition": "only the crack kept",
+      "Intact": 0.904,
+      "Hairline": 0.788,
+      "Star": 0.684,
+      "Network": 0.678
+    }
+  ]
+}

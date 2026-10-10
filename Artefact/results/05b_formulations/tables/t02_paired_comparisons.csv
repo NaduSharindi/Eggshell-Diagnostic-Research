@@ -1,0 +1,12 @@
+comparison,n_folds,mean_diff,sd_diff,wilcoxon_p,resolvable
+efficientnet_b0+hierarchical vs convnext_tiny+hierarchical,5,0.2323,0.1816,0.125,True
+efficientnet_b0+hierarchical vs convnext_tiny+multitask,5,0.025,0.0137,0.0625,True
+efficientnet_b0+hierarchical vs convnext_tiny+multitask_seg,5,0.1444,0.198,0.1875,False
+efficientnet_b0+hierarchical vs convnext_tiny+single4,5,0.0215,0.0215,0.1875,True
+efficientnet_b0+hierarchical vs efficientnet_b0+multitask,5,0.0158,0.0108,0.0625,True
+efficientnet_b0+hierarchical vs efficientnet_b0+multitask_seg,5,0.0089,0.0147,0.3125,False
+efficientnet_b0+hierarchical vs efficientnet_b0+single4,5,0.0347,0.0057,0.0625,True
+efficientnet_b0+hierarchical vs mobilenetv3+hierarchical,5,0.0083,0.0223,0.4375,False
+efficientnet_b0+hierarchical vs mobilenetv3+multitask,5,0.0104,0.0096,0.125,True
+efficientnet_b0+hierarchical vs mobilenetv3+multitask_seg,5,0.023,0.021,0.125,True
+efficientnet_b0+hierarchical vs mobilenetv3+single4,5,0.0359,0.0259,0.0625,True

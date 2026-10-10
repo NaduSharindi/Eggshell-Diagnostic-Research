@@ -1,0 +1,75 @@
+{
+  "top2": [
+    "efficientnet_b0",
+    "convnext_tiny"
+  ],
+  "table": [
+    {
+      "backbone": "efficientnet_b0",
+      "folds": 3,
+      "macro_f1": 0.7521,
+      "macro_f1_sd": 0.0624,
+      "binary_f1": 0.8588,
+      "bal_acc": 0.7433,
+      "params_m": 4.0127,
+      "vram_gb": 4.377,
+      "min_per_fold": 2.7524,
+      "epochs": 19.6667
+    },
+    {
+      "backbone": "convnext_tiny",
+      "folds": 3,
+      "macro_f1": 0.7485,
+      "macro_f1_sd": 0.0398,
+      "binary_f1": 0.8555,
+      "bal_acc": 0.7447,
+      "params_m": 27.8232,
+      "vram_gb": 3.5742,
+      "min_per_fold": 1.342,
+      "epochs": 30.0
+    },
+    {
+      "backbone": "mobilenetv3",
+      "folds": 3,
+      "macro_f1": 0.7385,
+      "macro_f1_sd": 0.0461,
+      "binary_f1": 0.8527,
+      "bal_acc": 0.7322,
+      "params_m": 4.2072,
+      "vram_gb": 2.3222,
+      "min_per_fold": 2.1096,
+      "epochs": 22.3333
+    },
+    {
+      "backbone": "vit_small",
+      "folds": 3,
+      "macro_f1": 0.7181,
+      "macro_f1_sd": 0.0701,
+      "binary_f1": 0.8587,
+      "bal_acc": 0.7272,
+      "params_m": 21.8131,
+      "vram_gb": 2.172,
+      "min_per_fold": 1.0706,
+      "epochs": 28.3333
+    },
+    {
+      "backbone": "resnet18",
+      "folds": 3,
+      "macro_f1": 0.6922,
+      "macro_f1_sd": 0.0069,
+      "binary_f1": 0.7975,
+      "bal_acc": 0.6902,
+      "params_m": 11.1786,
+      "vram_gb": 1.4384,
+      "min_per_fold": 1.21,
+      "epochs": 20.6667
+    }
+  ],
+  "targets": {
+    "acquisition_floor_4class": 0.357,
+    "acquisition_floor_binary": 0.666,
+    "best_classical_4class": 0.565,
+    "best_classical_binary": 0.77,
+    "oracle_4class": 0.829
+  }
+}

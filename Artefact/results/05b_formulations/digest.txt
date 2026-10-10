@@ -1,0 +1,44 @@
+======================================================================
+NOTEBOOK 05b DIGEST -- STAGE B
+======================================================================
+generated: 2026-10-08T13:46:52
+
+FORMULATION COMPARISON (mean over folds)
+   efficientnet_b0  hierarchical    4cls 0.7778 ± 0.0341  bin 0.8970  443.2M  0.8min
+   mobilenetv3      hierarchical    4cls 0.7695 ± 0.0512  bin 0.8898  443.2M  0.9min
+   efficientnet_b0  multitask_seg   4cls 0.7688 ± 0.0227  bin 0.8880  3.7M  5.5min
+   mobilenetv3      multitask       4cls 0.7674 ± 0.0338  bin 0.8715  4.2M  2.4min
+   efficientnet_b0  multitask       4cls 0.7619 ± 0.0335  bin 0.8592  4.0M  3.1min
+   convnext_tiny    single4         4cls 0.7563 ± 0.0372  bin 0.8480  27.8M  1.6min
+   mobilenetv3      multitask_seg   4cls 0.7548 ± 0.0495  bin 0.8606  3.1M  2.6min
+   convnext_tiny    multitask       4cls 0.7528 ± 0.0406  bin 0.8644  27.8M  1.8min
+   efficientnet_b0  single4         4cls 0.7431 ± 0.0316  bin 0.8717  4.0M  4.0min
+   mobilenetv3      single4         4cls 0.7419 ± 0.0518  bin 0.8605  4.2M  2.5min
+   convnext_tiny    multitask_seg   4cls 0.6334 ± 0.1860  bin 0.8476  28.0M  1.5min
+   convnext_tiny    hierarchical    4cls 0.5455 ± 0.1749  bin 0.8643  443.2M  1.0min
+
+PAIRED COMPARISONS vs BEST
+   efficientnet_b0+hierarchical vs convnext_tiny+hierarchical diff +0.2323 ± 0.1816  RESOLVABLE
+   efficientnet_b0+hierarchical vs convnext_tiny+multitask diff +0.0250 ± 0.0137  RESOLVABLE
+   efficientnet_b0+hierarchical vs convnext_tiny+multitask_seg diff +0.1444 ± 0.1980  tie
+   efficientnet_b0+hierarchical vs convnext_tiny+single4 diff +0.0215 ± 0.0215  RESOLVABLE
+   efficientnet_b0+hierarchical vs efficientnet_b0+multitask diff +0.0158 ± 0.0108  RESOLVABLE
+   efficientnet_b0+hierarchical vs efficientnet_b0+multitask_seg diff +0.0089 ± 0.0147  tie
+   efficientnet_b0+hierarchical vs efficientnet_b0+single4 diff +0.0347 ± 0.0057  RESOLVABLE
+   efficientnet_b0+hierarchical vs mobilenetv3+hierarchical diff +0.0083 ± 0.0223  tie
+   efficientnet_b0+hierarchical vs mobilenetv3+multitask diff +0.0104 ± 0.0096  RESOLVABLE
+   efficientnet_b0+hierarchical vs mobilenetv3+multitask_seg diff +0.0230 ± 0.0210  RESOLVABLE
+   efficientnet_b0+hierarchical vs mobilenetv3+single4  diff +0.0359 ± 0.0259  RESOLVABLE
+
+FOLD DIFFICULTY: {0: 0.7794, 1: 0.7224, 2: 0.7239, 3: 0.6788, 4: 0.751}
+
+CRACK-MASKED CONTROL
+   four-class   intact 0.7431  masked 0.8957  drop -0.1527  crack share -0.341
+   binary       intact 0.8717  masked 0.9982  drop -0.1265  crack share -0.413
+
+SPLIT REGIME COMPARISON
+   four-class   stratified 0.7431  grouped 0.7371  gap 0.006
+   binary       stratified 0.8717  grouped 0.8878  gap -0.0161
+
+SELECTED: efficientnet_b0 + hierarchical
+======================================================================

@@ -1,0 +1,8 @@
+egg_id,age_class,true_label,pred_label,true_phys,pred_phys,true_dominant,pred_dominant,confidence
+E267,Late lay,Star,Network,30.0,75.0,mechanical,physiological,0.525
+E334,Early lay,Network,Star,50.0,15.0,physiological,mechanical,0.519
+E340,Early lay,Hairline,Network,30.0,50.0,mechanical,physiological,0.557
+E353,Peak production,Network,Star,60.0,20.0,physiological,mechanical,0.642
+E395,Peak production,Hairline,Network,40.0,60.0,mechanical,physiological,0.678
+E402,Late lay,Star,Hairline,30.0,55.0,mechanical,physiological,0.675
+E437,Peak production,Network,Hairline,60.0,40.0,physiological,mechanical,0.779

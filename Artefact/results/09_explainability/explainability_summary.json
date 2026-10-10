@@ -1,0 +1,124 @@
+{
+  "stage": "09_explainability",
+  "generated_at": "2026-10-09T23:18:28",
+  "model": {
+    "backbone": "efficientnet_b0",
+    "formulation": "multitask_seg",
+    "age_mode": "none"
+  },
+  "n_test_cracked": 51,
+  "mean_polygon_area_pct": 5.177,
+  "localisation": [
+    {
+      "method": "segmentation",
+      "n": 51,
+      "pointing_game": 0.7647,
+      "energy_inside": 0.5128,
+      "energy_median": 0.4983,
+      "iou_topk": 0.427,
+      "chance_energy": 0.0518,
+      "energy_lift_over_chance": 9.9
+    },
+    {
+      "method": "gradcam",
+      "n": 51,
+      "pointing_game": 0.549,
+      "energy_inside": 0.2034,
+      "energy_median": 0.1301,
+      "iou_topk": 0.2996,
+      "chance_energy": 0.0518,
+      "energy_lift_over_chance": 3.93
+    },
+    {
+      "method": "gradcampp",
+      "n": 51,
+      "pointing_game": 0.5098,
+      "energy_inside": 0.1781,
+      "energy_median": 0.118,
+      "iou_topk": 0.2632,
+      "chance_energy": 0.0518,
+      "energy_lift_over_chance": 3.44
+    }
+  ],
+  "by_pattern": [
+    {
+      "method": "gradcam",
+      "pattern": "Hairline",
+      "n": 22,
+      "pointing": 0.2727,
+      "energy": 0.0698,
+      "iou": 0.1277
+    },
+    {
+      "method": "gradcam",
+      "pattern": "Network",
+      "n": 18,
+      "pointing": 0.6667,
+      "energy": 0.2969,
+      "iou": 0.4296
+    },
+    {
+      "method": "gradcam",
+      "pattern": "Star",
+      "n": 11,
+      "pointing": 0.9091,
+      "energy": 0.3177,
+      "iou": 0.4304
+    },
+    {
+      "method": "gradcampp",
+      "pattern": "Hairline",
+      "n": 22,
+      "pointing": 0.2273,
+      "energy": 0.069,
+      "iou": 0.138
+    },
+    {
+      "method": "gradcampp",
+      "pattern": "Network",
+      "n": 18,
+      "pointing": 0.6667,
+      "energy": 0.2511,
+      "iou": 0.3614
+    },
+    {
+      "method": "gradcampp",
+      "pattern": "Star",
+      "n": 11,
+      "pointing": 0.8182,
+      "energy": 0.2766,
+      "iou": 0.353
+    },
+    {
+      "method": "segmentation",
+      "pattern": "Hairline",
+      "n": 22,
+      "pointing": 0.6818,
+      "energy": 0.3717,
+      "iou": 0.2919
+    },
+    {
+      "method": "segmentation",
+      "pattern": "Network",
+      "n": 18,
+      "pointing": 0.8333,
+      "energy": 0.6685,
+      "iou": 0.5696
+    },
+    {
+      "method": "segmentation",
+      "pattern": "Star",
+      "n": 11,
+      "pointing": 0.8182,
+      "energy": 0.5401,
+      "iou": 0.4638
+    }
+  ],
+  "seg_vs_gradcam": {
+    "mean_diff": 0.3094,
+    "sd_diff": 0.1768,
+    "n": 51,
+    "wilcoxon_p": 0.0,
+    "seg_better_pct": 94.1
+  }
+}

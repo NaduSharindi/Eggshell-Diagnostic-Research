@@ -1,0 +1,83 @@
+{
+  "stage": "05c_crack_control",
+  "generated_at": "2026-10-08T18:18:46",
+  "baseline": {
+    "clean_4class": 0.7431,
+    "clean_binary": 0.8717,
+    "floor_4class": 0.295,
+    "floor_binary": 0.565
+  },
+  "backbone": "efficientnet_b0",
+  "formulation": "single4",
+  "coverage": [
+    {
+      "label4": "Hairline",
+      "n": "159",
+      "median_bbox_w": "84.0",
+      "median_bbox_h": "115.0",
+      "pct_covered_0.45": "73.6",
+      "pct_covered_0.65": "98.7"
+    },
+    {
+      "label4": "Network",
+      "n": "108",
+      "median_bbox_w": "141.0",
+      "median_bbox_h": "146.0",
+      "pct_covered_0.45": "62.0",
+      "pct_covered_0.65": "90.7"
+    },
+    {
+      "label4": "Star",
+      "n": "68",
+      "median_bbox_w": "156.5",
+      "median_bbox_h": "126.0",
+      "pct_covered_0.45": "48.5",
+      "pct_covered_0.65": "91.2"
+    }
+  ],
+  "control": [
+    {
+      "condition": "clean (crack intact)",
+      "four_class": 0.7431,
+      "four_class_sd": 0.0316,
+      "binary": 0.8717
+    },
+    {
+      "condition": "occluded 0.45 (172px, 65% covered)",
+      "four_class": 0.7121,
+      "four_class_sd": 0.0517,
+      "binary": 0.8391
+    },
+    {
+      "condition": "occluded 0.65 (249px, 95% covered)",
+      "four_class": 0.6578,
+      "four_class_sd": 0.0463,
+      "binary": 0.833
+    },
+    {
+      "condition": "acquisition floor (no pixels)",
+      "four_class": 0.295,
+      "four_class_sd": NaN,
+      "binary": 0.565
+    }
+  ],
+  "crack_share_overall": 0.19,
+  "covered_subset": [
+    {
+      "box_frac": 0.45,
+      "n_eggs": 456,
+      "n_cracked_fully_covered": 186,
+      "four_class_all": 0.7133,
+      "four_class_covered_only": 0.6953,
+      "detection_recall_covered": 0.7903
+    },
+    {
+      "box_frac": 0.65,
+      "n_eggs": 540,
+      "n_cracked_fully_covered": 270,
+      "four_class_all": 0.6654,
+      "four_class_covered_only": 0.6693,
+      "detection_recall_covered": 0.8667
+    }
+  ]
+}

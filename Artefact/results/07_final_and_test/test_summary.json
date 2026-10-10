@@ -1,0 +1,44 @@
+{
+  "stage": "07_final_and_test",
+  "generated_at": "2026-10-09T17:15:41",
+  "selected": {
+    "backbone": "efficientnet_b0",
+    "formulation": "multitask_seg",
+    "age_mode": "none"
+  },
+  "runner_up": {
+    "backbone": "efficientnet_b0",
+    "formulation": "single4",
+    "age_mode": "none"
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epoch_budget": {
+    "multitask_seg": 32,
+    "single4": 32
+  },
+  "headline": {
+    "four_class_macro_f1": 0.7942,
+    "four_class_balanced_acc": 0.811,
+    "four_class_accuracy": 0.8163,
+    "binary_macro_f1": 0.907,
+    "binary_roc_auc": 0.9854,
+    "binary_pr_auc": 0.9873,
+    "n_test": 98,
+    "per_seed_macro_f1": [
+      0.794,
+      0.7724,
+      0.8098
+    ],
+    "seed_sd": 0.0188
+  },
+  "deployment": {
+    "params_m": 3.67,
+    "latency_ms_single_image": 4.91,
+    "checkpoint_mb": 15.0,
+    "gpu": "NVIDIA GeForce RTX 5070"
+  }
+}

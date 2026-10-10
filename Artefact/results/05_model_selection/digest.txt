@@ -1,0 +1,20 @@
+======================================================================
+NOTEBOOK 05 DIGEST -- STAGE A BACKBONE SCREEN
+======================================================================
+generated: 2026-10-08T10:44:12
+resolution 384px | policy medium | effective batch 32
+
+TARGETS
+   acquisition floor  4cls 0.357  bin 0.666
+   best classical     4cls 0.565  bin 0.77
+   oracle             4cls 0.829
+
+STAGE A RESULTS (mean over folds)
+   efficientnet_b0  4cls 0.7521 ± 0.0624  bin 0.8588  4.0M  4.38GB  2.8min/fold  [BEATS classical]
+   convnext_tiny    4cls 0.7485 ± 0.0398  bin 0.8555  27.8M  3.57GB  1.3min/fold  [BEATS classical]
+   mobilenetv3      4cls 0.7385 ± 0.0461  bin 0.8527  4.2M  2.32GB  2.1min/fold  [BEATS classical]
+   vit_small        4cls 0.7181 ± 0.0701  bin 0.8587  21.8M  2.17GB  1.1min/fold  [BEATS classical]
+   resnet18         4cls 0.6922 ± 0.0069  bin 0.7975  11.2M  1.44GB  1.2min/fold  [BEATS classical]
+
+TOP TWO FOR STAGE B: ['efficientnet_b0', 'convnext_tiny']
+======================================================================

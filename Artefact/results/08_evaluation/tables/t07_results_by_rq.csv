@@ -1,0 +1,7 @@
+RQ,result
+RQ1 detection,"macro F1 0.907, ROC-AUC 0.985, recall 0.980"
+RQ2 morphology,"macro F1 0.794, accuracy 0.816"
+RQ3 metadata fusion,no gain; paired diff -0.0046 ± 0.0420 (nb 06)
+RQ4 explanation localisation,notebook 09
+RQ5 root-cause propagation,notebook 10
+RQ6 usability,notebook 12

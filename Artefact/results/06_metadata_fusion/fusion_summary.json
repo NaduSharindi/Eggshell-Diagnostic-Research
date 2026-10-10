@@ -1,0 +1,45 @@
+{
+  "stage": "06_metadata_fusion",
+  "generated_at": "2026-10-09T15:55:53",
+  "independence": {
+    "chi2": 4.5013625329156675,
+    "p": 0.3423859492467671,
+    "cramers_v": 0.08902209858694277
+  },
+  "ablation": [
+    {
+      "metric": "four_class",
+      "image only": 0.7593,
+      "image only sd": 0.045,
+      "image + age": 0.7608,
+      "image + age sd": 0.027,
+      "paired diff": 0.0015,
+      "diff sd": 0.0227,
+      "wilcoxon_p": 1.0,
+      "resolvable": false
+    },
+    {
+      "metric": "binary",
+      "image only": 0.8753,
+      "image only sd": 0.0382,
+      "image + age": 0.8682,
+      "image + age sd": 0.0389,
+      "paired diff": -0.007,
+      "diff sd": 0.0077,
+      "wilcoxon_p": 0.25,
+      "resolvable": false
+    },
+    {
+      "metric": "pattern_only",
+      "image only": 0.7579,
+      "image only sd": 0.062,
+      "image + age": 0.7533,
+      "image + age sd": 0.0209,
+      "paired diff": -0.0046,
+      "diff sd": 0.042,
+      "wilcoxon_p": 1.0,
+      "resolvable": false
+    }
+  ],
+  "conclusion": "age does not improve perception; fuse at the decision layer"
+}

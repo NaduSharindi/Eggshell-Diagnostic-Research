@@ -1,0 +1,4 @@
+study,task,reported,morphology,metadata,explainability validated,leakage screened
+Cengel et al. (2025),intact vs damaged (binary),98.73% accuracy,no,no,no,no
+Cheng et al. (2024),cracked egg detection (binary),88.8% mAP,no,no,no,no
+This work,4-class morphology + detection,0.794 macro F1 / 0.907 binary,yes (3 types),yes (decision layer),nb 09,yes

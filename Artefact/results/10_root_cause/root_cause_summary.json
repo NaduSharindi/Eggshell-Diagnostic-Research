@@ -1,0 +1,65 @@
+{
+  "stage": "10_root_cause",
+  "generated_at": "2026-10-09T23:28:51",
+  "detection_threshold": 0.3,
+  "n_test": 98,
+  "rule_coverage": "9/9",
+  "n_low_confidence": 18,
+  "propagation": {
+    "n_both_cracked": 51,
+    "pattern_correct": 42,
+    "pattern_accuracy": 0.8235,
+    "mean_abs_error_phys_pct": 4.8,
+    "median_abs_error_phys_pct": 0.0,
+    "max_abs_error_phys_pct": 45.0,
+    "pct_exact_attribution": 82.4,
+    "pct_dominant_cause_flipped": 13.7,
+    "n_dominant_flipped": 7,
+    "n_false_alarm_diagnoses": 11,
+    "n_missed_cracks": 0
+  },
+  "confusion_severity": [
+    {
+      "true_pattern": "Star",
+      "pred_pattern": "Network",
+      "mean_shift": 40.0,
+      "max_shift": 45.0,
+      "flips": 3
+    },
+    {
+      "true_pattern": "Network",
+      "pred_pattern": "Star",
+      "mean_shift": 40.0,
+      "max_shift": 45.0,
+      "flips": 3
+    },
+    {
+      "true_pattern": "Hairline",
+      "pred_pattern": "Star",
+      "mean_shift": 20.0,
+      "max_shift": 25.0,
+      "flips": 1
+    },
+    {
+      "true_pattern": "Hairline",
+      "pred_pattern": "Network",
+      "mean_shift": 20.0,
+      "max_shift": 20.0,
+      "flips": 2
+    },
+    {
+      "true_pattern": "Network",
+      "pred_pattern": "Hairline",
+      "mean_shift": 20.0,
+      "max_shift": 20.0,
+      "flips": 2
+    },
+    {
+      "true_pattern": "Star",
+      "pred_pattern": "Hairline",
+      "mean_shift": 20.0,
+      "max_shift": 25.0,
+      "flips": 1
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+condition,four_class,four_class_sd,binary
+clean (crack intact),0.7431,0.0316,0.8717
+"occluded 0.45 (172px, 65% covered)",0.7121,0.0517,0.8391
+"occluded 0.65 (249px, 95% covered)",0.6578,0.0463,0.833
+acquisition floor (no pixels),0.295,,0.565

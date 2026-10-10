@@ -1,0 +1,7 @@
+method,correct,n,pointing,energy
+gradcam,False,11,0.1818,0.136
+gradcam,True,40,0.65,0.2219
+gradcampp,False,11,0.1818,0.1053
+gradcampp,True,40,0.6,0.1981
+segmentation,False,11,0.5455,0.4635
+segmentation,True,40,0.825,0.5263
