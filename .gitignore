@@ -1,31 +1,26 @@
-# Images and large data (stored in private cloud storage)
-*.jpg
-*.jpeg
-*.png
-*.zip
-00_raw_backup/
-01_renamed/
-02_cropped/
+# ---- append these lines to the repository-root .gitignore --------------
 
-# Python environments
-ls_env/
-venv/
-__pycache__/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Raw and cropped egg images are large and are not redistributed
+# Egg images: large, and not redistributed with the repository
 Artefact/data/images/
 Artefact/data/raw/
 
-# Generated artefacts
-Artefact/data/processed/master_table.csv
+# Trained weights: regenerable, too large for git (use a release asset if needed)
 Artefact/models/*.pt
 Artefact/models/*.pth
-Artefact/**/__pycache__/
-Artefact/.ipynb_checkpoints/
-**/.ipynb_checkpoints/
+Artefact/models/*.ckpt
+Artefact/models/*.onnx
 
-# Keep results (figures and tables ARE committed - they are thesis evidence)
-!Artefact/results/**
+# Transfer archives produced by tools/collect_outputs.py
+eggshell_outputs*.zip
+
+# Python / Jupyter noise
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+.venv/
+.env
+
+# NOTE: Artefact/results/ and Artefact/data/processed/ are deliberately NOT ignored.
+# They are the evidence for Chapter 5 and must be committed. master_table.csv
+# references images by file name only, so it is portable between machines.
