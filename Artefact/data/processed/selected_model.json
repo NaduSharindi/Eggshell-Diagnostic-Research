@@ -1,0 +1,15 @@
+{
+  "backbone": "efficientnet_b0",
+  "formulation": "hierarchical",
+  "macro_f1": 0.7778,
+  "sd": 0.0341,
+  "binary_f1": 0.897,
+  "params_m": 443.2,
+  "vram_gb": 110.8,
+  "min_per_fold": 0.8,
+  "ties": [
+    "efficientnet_b0+hierarchical vs convnext_tiny+multitask_seg",
+    "efficientnet_b0+hierarchical vs efficientnet_b0+multitask_seg",
+    "efficientnet_b0+hierarchical vs mobilenetv3+hierarchical"
+  ]
+}
