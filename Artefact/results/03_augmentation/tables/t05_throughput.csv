@@ -1,0 +1,6 @@
+policy,img_per_s_single_core,est_img_per_s_8_workers
+none,384.3,3074.0
+geometric_only,314.2,2514.0
+light,111.3,891.0
+medium,76.8,614.0
+heavy,63.3,506.0

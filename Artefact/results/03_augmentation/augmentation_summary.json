@@ -1,0 +1,193 @@
+{
+  "stage": "03_augmentation",
+  "generated_at": "2026-10-07T16:03:34",
+  "crack_preservation": [
+    {
+      "policy": "none",
+      "n": 284,
+      "geom_median": 1.0,
+      "geom_p05": 1.0,
+      "pct_geom_above_95": 100.0,
+      "contrast_median": 1.0,
+      "contrast_p05": 1.0,
+      "pct_contrast_above_70": 100.0
+    },
+    {
+      "policy": "geometric_only",
+      "n": 284,
+      "geom_median": 1.0,
+      "geom_p05": 0.998,
+      "pct_geom_above_95": 100.0,
+      "contrast_median": 0.999,
+      "contrast_p05": 0.812,
+      "pct_contrast_above_70": 97.5
+    },
+    {
+      "policy": "light",
+      "n": 284,
+      "geom_median": 1.0,
+      "geom_p05": 0.998,
+      "pct_geom_above_95": 100.0,
+      "contrast_median": 0.985,
+      "contrast_p05": 0.716,
+      "pct_contrast_above_70": 95.4
+    },
+    {
+      "policy": "medium",
+      "n": 284,
+      "geom_median": 1.0,
+      "geom_p05": 0.998,
+      "pct_geom_above_95": 100.0,
+      "contrast_median": 0.934,
+      "contrast_p05": 0.607,
+      "pct_contrast_above_70": 90.1
+    },
+    {
+      "policy": "heavy",
+      "n": 284,
+      "geom_median": 1.0,
+      "geom_p05": 0.999,
+      "pct_geom_above_95": 100.0,
+      "contrast_median": 0.823,
+      "contrast_p05": 0.42,
+      "pct_contrast_above_70": 70.1
+    }
+  ],
+  "leak_under_augmentation": [
+    {
+      "policy": "none",
+      "4-class (random)": 0.342,
+      "4-class (session-grouped)": 0.297,
+      "binary (random)": 0.637,
+      "binary (session-grouped)": 0.615
+    },
+    {
+      "policy": "geometric_only",
+      "4-class (random)": 0.366,
+      "4-class (session-grouped)": 0.323,
+      "binary (random)": 0.601,
+      "binary (session-grouped)": 0.574
+    },
+    {
+      "policy": "light",
+      "4-class (random)": 0.308,
+      "4-class (session-grouped)": 0.282,
+      "binary (random)": 0.585,
+      "binary (session-grouped)": 0.57
+    },
+    {
+      "policy": "medium",
+      "4-class (random)": 0.295,
+      "4-class (session-grouped)": 0.278,
+      "binary (random)": 0.565,
+      "binary (session-grouped)": 0.532
+    },
+    {
+      "policy": "heavy",
+      "4-class (random)": 0.262,
+      "4-class (session-grouped)": 0.246,
+      "binary (random)": 0.559,
+      "binary (session-grouped)": 0.516
+    },
+    {
+      "policy": "majority baseline",
+      "4-class (random)": 0.164,
+      "4-class (session-grouped)": NaN,
+      "binary (random)": 0.328,
+      "binary (session-grouped)": NaN
+    }
+  ],
+  "baselines": {
+    "four_class": 0.164,
+    "binary": 0.328
+  },
+  "throughput": [
+    {
+      "policy": "none",
+      "img_per_s_single_core": 384.3,
+      "est_img_per_s_8_workers": 3074.0
+    },
+    {
+      "policy": "geometric_only",
+      "img_per_s_single_core": 314.2,
+      "est_img_per_s_8_workers": 2514.0
+    },
+    {
+      "policy": "light",
+      "img_per_s_single_core": 111.3,
+      "est_img_per_s_8_workers": 891.0
+    },
+    {
+      "policy": "medium",
+      "img_per_s_single_core": 76.8,
+      "est_img_per_s_8_workers": 614.0
+    },
+    {
+      "policy": "heavy",
+      "img_per_s_single_core": 63.3,
+      "est_img_per_s_8_workers": 506.0
+    }
+  ],
+  "chosen_policy": "medium",
+  "shortlist": [
+    "light",
+    "medium"
+  ],
+  "chosen_metrics": {
+    "contrast_p05": 0.607,
+    "pct_contrast_above_floor": 90.1,
+    "leak_4class": 0.295,
+    "leak_4class_grouped": 0.278,
+    "leak_binary": 0.565,
+    "geom_retention": 1.0,
+    "contrast_retention": 0.934
+  },
+  "figures": [
+    {
+      "file": "01_policy_grid_light.png",
+      "caption": "Independent draws from the 'light' augmentation policy"
+    },
+    {
+      "file": "02_policy_grid_medium.png",
+      "caption": "Independent draws from the 'medium' augmentation policy"
+    },
+    {
+      "file": "03_policy_grid_heavy.png",
+      "caption": "Independent draws from the 'heavy' augmentation policy"
+    },
+    {
+      "file": "04_crack_preservation.png",
+      "caption": "Crack area and contrast retained under each augmentation policy"
+    },
+    {
+      "file": "05_leak_under_augmentation.png",
+      "caption": "Metadata-only classification of augmented images, by augmentation policy"
+    },
+    {
+      "file": "06_augmentation_tradeoff.png",
+      "caption": "Trade-off between neutralising the acquisition shortcut and preserving crack visibility"
+    }
+  ],
+  "tables": [
+    {
+      "file": "t01_policy_parameters.csv",
+      "caption": "Transform probabilities and magnitudes of each policy"
+    },
+    {
+      "file": "t02_crack_preservation.csv",
+      "caption": "Annotated crack area and crack contrast retained under each augmentation policy"
+    },
+    {
+      "file": "t03_contrast_retention_by_class.csv",
+      "caption": "Median crack-contrast retention by morphology class and policy"
+    },
+    {
+      "file": "t04_leak_under_augmentation.csv",
+      "caption": "Metadata-only classification of augmented images under each policy"
+    },
+    {
+      "file": "t05_throughput.csv",
+      "caption": "Augmentation throughput per policy"
+    }
+  ]
+}

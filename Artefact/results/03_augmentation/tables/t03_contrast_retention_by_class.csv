@@ -1,0 +1,6 @@
+policy,Hairline,Star,Network
+none,1.0,1.0,1.0
+geometric_only,0.996,1.007,0.998
+light,0.981,0.997,0.986
+medium,0.92,0.934,0.952
+heavy,0.812,0.889,0.809

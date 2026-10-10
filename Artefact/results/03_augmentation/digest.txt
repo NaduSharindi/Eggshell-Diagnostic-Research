@@ -1,0 +1,32 @@
+======================================================================
+NOTEBOOK 03 DIGEST -- AUGMENTATION POLICY
+======================================================================
+generated: 2026-10-07T16:03:34
+training resolution: 384px
+
+RESIDUAL SHORTCUT UNDER EACH POLICY (macro F1 from capture statistics alone)
+   none               4cls=0.342  4cls_grp=0.297  bin=0.637
+   geometric_only     4cls=0.366  4cls_grp=0.323  bin=0.601
+   light              4cls=0.308  4cls_grp=0.282  bin=0.585
+   medium             4cls=0.295  4cls_grp=0.278  bin=0.565
+   heavy              4cls=0.262  4cls_grp=0.246  bin=0.559
+   majority baseline  4cls=0.164  4cls_grp=nan    bin=0.328
+
+CRACK EVIDENCE PRESERVED
+   none               geom=1.0    contrast=1.0    pct_contrast>=0.70=100.0
+   geometric_only     geom=1.0    contrast=0.999  pct_contrast>=0.70=97.5
+   light              geom=1.0    contrast=0.985  pct_contrast>=0.70=95.4
+   medium             geom=1.0    contrast=0.934  pct_contrast>=0.70=90.1
+   heavy              geom=1.0    contrast=0.823  pct_contrast>=0.70=70.1
+
+THROUGHPUT
+   none               384.3 img/s/core  ~3074.0 img/s with 8 workers
+   geometric_only     314.2 img/s/core  ~2514.0 img/s with 8 workers
+   light              111.3 img/s/core  ~891.0 img/s with 8 workers
+   medium             76.8 img/s/core  ~614.0 img/s with 8 workers
+   heavy              63.3 img/s/core  ~506.0 img/s with 8 workers
+
+ADOPTED POLICY: medium
+   {'contrast_p05': 0.607, 'pct_contrast_above_floor': 90.1, 'leak_4class': 0.295, 'leak_4class_grouped': 0.278, 'leak_binary': 0.565, 'geom_retention': 1.0, 'contrast_retention': 0.934}
+   shortlist carried to notebook 05: ['light', 'medium']
+======================================================================

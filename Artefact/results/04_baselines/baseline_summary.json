@@ -1,0 +1,137 @@
+{
+  "stage": "04_baselines",
+  "generated_at": "2026-10-07T17:03:43",
+  "ridge_threshold": 95.0,
+  "ridge_sweep": [
+    {
+      "percentile": 95.0,
+      "median_iou": 0.0155,
+      "median_recall": 0.0316,
+      "mean_recall": 0.0477
+    },
+    {
+      "percentile": 97.0,
+      "median_iou": 0.0073,
+      "median_recall": 0.009,
+      "mean_recall": 0.0249
+    },
+    {
+      "percentile": 98.0,
+      "median_iou": 0.0013,
+      "median_recall": 0.0018,
+      "mean_recall": 0.0157
+    },
+    {
+      "percentile": 99.0,
+      "median_iou": 0.0,
+      "median_recall": 0.0,
+      "mean_recall": 0.0067
+    },
+    {
+      "percentile": 99.5,
+      "median_iou": 0.0,
+      "median_recall": 0.0,
+      "mean_recall": 0.0033
+    }
+  ],
+  "auto_segmentation": {
+    "median_iou": 0.013546955109589635,
+    "median_recall": 0.028182968016006397,
+    "by_pattern": {
+      "Hairline": 0.004,
+      "Network": 0.037,
+      "Star": 0.079
+    }
+  },
+  "baselines": {
+    "B0 most_frequent": {
+      "four_class": 0.164,
+      "binary": 0.339
+    },
+    "B0 stratified": {
+      "four_class": 0.288,
+      "binary": 0.498
+    },
+    "B1 capture statistics only": {
+      "four_class": 0.357,
+      "binary": 0.666
+    },
+    "B2 texture (LBP + Gabor)": {
+      "four_class": 0.529,
+      "binary": 0.747
+    },
+    "B2b texture + ridge response": {
+      "four_class": 0.559,
+      "binary": 0.77
+    },
+    "B3 automatic crack geometry": {
+      "four_class": 0.508,
+      "binary": 0.749
+    },
+    "B3b texture + ridge + geometry": {
+      "four_class": 0.565,
+      "binary": 0.763
+    },
+    "B4 human polygon geometry (oracle)": {
+      "four_class": 0.829,
+      "binary": NaN
+    }
+  },
+  "baselines_grouped": {
+    "4-class (session-grouped)": {
+      "B1 capture statistics only": 0.307,
+      "B2 texture (LBP + Gabor)": 0.404,
+      "B2b texture + ridge response": 0.453,
+      "B3 automatic crack geometry": 0.417,
+      "B3b texture + ridge + geometry": 0.473,
+      "B4 human polygon geometry (oracle)": 0.769
+    },
+    "binary (session-grouped)": {
+      "B1 capture statistics only": 0.607,
+      "B2 texture (LBP + Gabor)": 0.632,
+      "B2b texture + ridge response": 0.646,
+      "B3 automatic crack geometry": 0.627,
+      "B3b texture + ridge + geometry": 0.662,
+      "B4 human polygon geometry (oracle)": NaN
+    }
+  },
+  "targets": {
+    "acquisition_floor_4class": 0.357,
+    "acquisition_floor_binary": 0.666,
+    "best_classical_4class": 0.565,
+    "best_classical_binary": 0.77,
+    "oracle_4class": 0.829
+  },
+  "figures": [
+    {
+      "file": "01_auto_segmentation.png",
+      "caption": "Automatic ridge segmentation against the human annotations"
+    },
+    {
+      "file": "02_baseline_comparison.png",
+      "caption": "Baseline macro F1 for both tasks, with the capture-statistics floor marked"
+    }
+  ],
+  "tables": [
+    {
+      "file": "t00_ridge_threshold_sweep.csv",
+      "caption": "Automatic segmentation quality across candidate ridge thresholds"
+    },
+    {
+      "file": "t01_auto_segmentation_quality.csv",
+      "caption": "Agreement between the automatic ridge segmentation and the human annotation polygons"
+    },
+    {
+      "file": "t02_all_baselines.csv",
+      "caption": "All baselines under the notebook 02 fold assignment"
+    },
+    {
+      "file": "t03_baseline_summary.csv",
+      "caption": "Best classifier per baseline family"
+    },
+    {
+      "file": "t04_baselines_both_regimes.csv",
+      "caption": "Baseline performance under both split regimes"
+    }
+  ]
+}

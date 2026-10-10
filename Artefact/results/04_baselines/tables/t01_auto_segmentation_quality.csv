@@ -1,0 +1,6 @@
+,seg_iou_vs_human,seg_iou_vs_human,seg_recall_vs_human,seg_recall_vs_human,seg_precision_vs_human,seg_precision_vs_human
+,median,mean,median,mean,median,mean
+pattern,,,,,,
+Hairline,0.001,0.015,0.004,0.037,0.002,0.026
+Network,0.025,0.036,0.037,0.052,0.092,0.137
+Star,0.037,0.046,0.079,0.079,0.106,0.133
