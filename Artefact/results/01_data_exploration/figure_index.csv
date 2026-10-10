@@ -1,0 +1,16 @@
+stage,file,caption
+01_data_exploration,01_class_balance.png,"Distribution of the detection target, the four-class morphology target and breeder age class"
+01_data_exploration,02_pattern_by_age_association.png,"Association between crack morphology and breeder age class, with Pearson residuals"
+01_data_exploration,03_root_cause_rule_base.png,Expert rule base mapping crack morphology and breeder age class to the physiological share of cause
+01_data_exploration,04_annotation_process.png,Annotation effort by class and stability of the class mix across the annotation session
+01_data_exploration,05_capture_confound_screen.png,"Distribution of capture variables by class, screening for shortcut features"
+01_data_exploration,06_egg_framing.png,Egg framing within the square crop and incidence of border-touching eggs
+01_data_exploration,07_crack_geometry_by_pattern.png,"Annotated crack geometry by morphology class, showing that the taxonomy is structurally grounded"
+01_data_exploration,08_geometry_only_baseline.png,Confusion matrix of a logistic-regression classifier using annotated crack geometry only
+01_data_exploration,09_crack_spatial_distribution.png,Spatial distribution of annotated crack centroids by morphology class
+01_data_exploration,10_resolution_sensitivity.png,"Retention of crack detail at candidate network input sizes, used to justify the pre-processing resize"
+01_data_exploration,11_samples_intact.png,Representative candled images of class Intact with annotation polygons overlaid
+01_data_exploration,12_samples_hairline.png,Representative candled images of class Hairline with annotation polygons overlaid
+01_data_exploration,13_samples_star.png,Representative candled images of class Star with annotation polygons overlaid
+01_data_exploration,14_samples_network.png,Representative candled images of class Network with annotation polygons overlaid
+01_data_exploration,15_difficult_cases.png,Eggs requiring the longest annotation time and those with the smallest annotated crack area

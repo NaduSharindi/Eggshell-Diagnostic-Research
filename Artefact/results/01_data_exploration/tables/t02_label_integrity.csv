@@ -1,0 +1,19 @@
+constraint,passed,observed
+row count equals 652 eggs,True,652
+egg_id parsed for every row,True,0
+egg_id unique,True,0
+egg_id covers E001..E652 with no gaps,True,0
+annotation_id unique,True,0
+egg_status vocabulary closed,True,"['Intact', 'Micro_cracked']"
+crack_pattern vocabulary closed,True,"['Hairline', 'Network', 'Star']"
+age_class complete and closed,True,0
+Intact -> crack_pattern empty,True,0
+Intact -> no polygon drawn,True,0
+Intact -> no root-cause split,True,0
+Micro_cracked -> crack_pattern present,True,0
+Micro_cracked -> at least one polygon,True,0
+Micro_cracked -> root-cause split present,True,0
+phys% + mech% == 100 for every cracked egg,True,[100.0]
+single annotator (inter-rater reliability not estimable),True,1
+lead_time strictly positive,True,3.529
+updated_at >= created_at,True,0

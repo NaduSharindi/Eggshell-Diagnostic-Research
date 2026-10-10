@@ -1,0 +1,49 @@
+======================================================================
+NOTEBOOK 01 DIGEST
+======================================================================
+generated            : 2026-10-07T10:53:01
+eggs                 : 652   image files: 652
+integrity checks     : 18/18 passed
+class counts         : {'Intact': 317, 'Hairline': 159, 'Network': 108, 'Star': 68}
+imbalance ratio      : 4.66
+age counts           : {'Early lay': 218, 'Peak production': 217, 'Late lay': 217}
+image size (min side): {'min': 967, 'median': 1734, 'max': 4448}
+all square           : False
+partial eggs (auto)  : 8
+semi-manual crops    : 134   human PARTIAL flags: 0
+crop method x class p: 4.393498468147636e-17
+partial detector     : n/a
+rule base determinist: True
+
+-- association of labels with breeder age class --
+   crack pattern x age class (cracked eggs only)    chi2=  5.676 p=0.2247  V=0.092
+   egg status x age class (all eggs)                chi2=  3.664 p=0.1601  V=0.075
+   four-class label x age class (all eggs)          chi2=  9.364 p=0.1541  V=0.085
+
+-- capture-condition confound screen (Holm corrected) --
+   image size (px)                    p_holm=0.0000  eps2=0.1197  *** SHORTCUT RISK
+   mean luminance inside egg          p_holm=0.0000  eps2=0.0696  *** SHORTCUT RISK
+   luminance SD inside egg            p_holm=0.0000  eps2=0.0890  *** SHORTCUT RISK
+   fraction of blown highlights       p_holm=0.0128  eps2=0.0144 
+   focus (Laplacian variance)         p_holm=0.0000  eps2=0.1426  *** SHORTCUT RISK
+   egg area / frame                   p_holm=0.0064  eps2=0.0143 
+   red/blue ratio (colour temperature) p_holm=0.0000  eps2=0.0874  *** SHORTCUT RISK
+
+-- morphology discrimination by annotated geometry --
+   poly_elongation_max      eps2=0.508  p=9.49e-38
+   poly_area_pct            eps2=0.485  p=3.99e-36
+   poly_band_frac_min       eps2=0.419  p=2.28e-31
+   poly_compactness         eps2=0.377  p=2.61e-28
+   poly_spread              eps2=0.143  p=1.83e-11
+   poly_n                   eps2=0.128  p=2.35e-10
+   poly_vertices            eps2=0.031  p=2.08e-03
+   geometry-only classifier: {'accuracy': 0.83, 'balanced_accuracy': 0.788, 'macro_f1': 0.789}
+
+-- crack detail retained after resize --
+   retain_224   0.08
+   retain_288   0.094
+   retain_320   0.103
+   retain_384   0.119
+   retain_448   0.134
+   retain_512   0.149
+======================================================================

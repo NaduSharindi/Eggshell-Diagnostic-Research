@@ -1,0 +1,5 @@
+label4,n,in_review_log,partial_from_box,padded_from_box,otsu_touches_border
+Intact,317,23,15,21,4
+Hairline,159,52,45,51,1
+Star,68,32,20,32,2
+Network,108,27,21,27,1

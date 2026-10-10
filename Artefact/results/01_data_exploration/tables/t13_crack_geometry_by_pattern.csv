@@ -1,0 +1,6 @@
+,poly_n,poly_n,poly_n,poly_area_pct,poly_area_pct,poly_area_pct,poly_elongation_max,poly_elongation_max,poly_elongation_max,poly_compactness,poly_compactness,poly_compactness,poly_spread,poly_spread,poly_spread,poly_band_frac_min,poly_band_frac_min,poly_band_frac_min,poly_vertices,poly_vertices,poly_vertices
+,median,mean,std,median,mean,std,median,mean,std,median,mean,std,median,mean,std,median,mean,std,median,mean,std
+crack_pattern_cat,,,,,,,,,,,,,,,,,,,,,
+Hairline,1.0,1.189,0.518,1.718,1.859,0.931,4.802,4.976,1.907,0.272,0.291,0.117,0.0,1.417,3.681,0.077,0.082,0.037,9.0,9.302,3.513
+Star,1.0,1.735,1.074,4.743,6.293,4.884,1.706,2.243,1.304,0.605,0.564,0.272,0.0,7.284,8.448,0.119,0.16,0.121,8.5,10.221,5.654
+Network,1.0,1.093,0.322,6.674,8.003,5.202,1.32,1.783,1.15,0.772,0.672,0.227,0.0,1.25,4.415,0.258,0.265,0.127,7.0,8.111,3.279

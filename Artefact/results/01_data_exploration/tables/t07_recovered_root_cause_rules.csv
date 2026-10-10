@@ -1,0 +1,10 @@
+crack_pattern,age_class,n,phys_pct,mech_pct,n_distinct_phys,n_distinct_interpretation,n_distinct_actions,deterministic
+Hairline,Early lay,65,30.0,70.0,1,1,1,True
+Hairline,Peak production,45,40.0,60.0,1,1,1,True
+Hairline,Late lay,49,55.0,45.0,1,1,1,True
+Star,Early lay,24,15.0,85.0,1,1,1,True
+Star,Peak production,20,20.0,80.0,1,1,1,True
+Star,Late lay,24,30.0,70.0,1,1,1,True
+Network,Early lay,34,50.0,50.0,1,1,1,True
+Network,Peak production,44,60.0,40.0,1,1,1,True
+Network,Late lay,30,75.0,25.0,1,1,1,True

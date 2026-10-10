@@ -1,0 +1,20 @@
+======================================================================
+NOTEBOOK 02 DIGEST -- PREPROCESSING AND SPLITS
+======================================================================
+generated: 2026-10-07T14:35:07
+
+cache: 448px, 392.6 MB
+
+RESIDUAL ACQUISITION SHORTCUT (macro F1 from capture statistics alone)
+   before preprocessing                       4cls=0.612  bin=0.816  4cls_grouped=0.551
+   after tight crop + resize                  4cls=0.534  bin=0.721  4cls_grouped=0.499
+   after crop + resize + standardisation      4cls=0.346  bin=0.651  4cls_grouped=0.291
+   interior crop + standardisation            4cls=0.384  bin=0.624  4cls_grouped=0.363
+   majority baseline                          4cls=0.164  bin=0.327  4cls_grouped=nan
+   reduction: 0.612 -> 0.346  (43.5%)
+
+PARTIAL EGGS from crop geometry: see t01
+TEST SET: n=98  {'Intact': 47, 'Hairline': 22, 'Network': 18, 'Star': 11}
+dev/test separability from capture stats: 0.479 (baseline 0.459)
+MATCHED SUBSET: n=504  {'Intact': 252, 'Hairline': 123, 'Network': 83, 'Star': 46}  residual probe=0.53
+======================================================================

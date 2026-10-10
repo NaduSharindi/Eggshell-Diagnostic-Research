@@ -1,0 +1,7 @@
+task,feature_set,n_features,macro_f1,balanced_acc,accuracy,baseline_macro_f1
+4-class morphology,all capture features,22,0.612,0.597,0.698,0.164
+4-class morphology,resize-invariant,17,0.603,0.586,0.689,0.164
+4-class morphology,resize + photometric-invariant,4,0.479,0.47,0.577,0.164
+binary detection,all capture features,22,0.816,0.816,0.816,0.339
+binary detection,resize-invariant,17,0.81,0.81,0.81,0.339
+binary detection,resize + photometric-invariant,4,0.702,0.703,0.702,0.339

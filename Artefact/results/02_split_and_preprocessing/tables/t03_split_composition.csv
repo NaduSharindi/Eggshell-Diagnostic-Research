@@ -1,0 +1,3 @@
+split,pct_Intact,pct_Hairline,pct_Star,pct_Network,pct_Early lay,pct_Peak production,pct_Late lay
+dev,0.487,0.247,0.103,0.162,0.336,0.336,0.329
+test,0.48,0.224,0.112,0.184,0.327,0.316,0.357

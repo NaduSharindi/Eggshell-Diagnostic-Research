@@ -1,0 +1,23 @@
+,dtype,n_missing,pct_missing,n_unique,example
+annotation_id,int64,0,0.0,652,2
+annotator,int64,0,0.0,1,1
+crack_pattern,str,317,48.6,3,Network
+crack_region,str,317,48.6,335,"[{""points"":[[44.42231075697211,69.9203187250996],[57.17131"
+created_at,"datetime64[us, UTC]",0,0.0,652,2026-09-24 08:52:29.786474+00:00
+egg_status,str,0,0.0,2,Intact
+id,int64,0,0.0,652,1
+image,str,0,0.0,652,/data/upload/1/7425fd45-E001.jpg
+lead_time,float64,0,0.0,649,375.902
+updated_at,"datetime64[us, UTC]",0,0.0,652,2026-09-24 08:52:29.786489+00:00
+age_class,category,0,0.0,3,Early lay
+physiological_nutritional_pct,float64,317,48.6,8,75.0
+mechanical_environmental_pct,float64,317,48.6,8,25.0
+interpretation,str,0,0.0,10,No micro-crack detected; shell integrity is acceptable for
+suggested_actions,str,0,0.0,10,Set the egg for incubation; no corrective action needed.
+egg_id,str,0,0.0,652,E001
+label4,category,0,0.0,4,Intact
+is_cracked,int64,0,0.0,2,0
+n_polygons,int64,0,0.0,6,0
+created_local,"datetime64[us, Asia/Colombo]",0,0.0,652,2026-09-24 14:22:29.786474+05:30
+annotation_minutes,float64,0,0.0,649,6.265033333333333
+crack_pattern_cat,category,317,48.6,3,Network

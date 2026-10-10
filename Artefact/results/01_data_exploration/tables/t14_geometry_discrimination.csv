@@ -1,0 +1,8 @@
+feature,H,p_value,epsilon_sq
+poly_elongation_max,170.5,9.49e-38,0.508
+poly_area_pct,163.0,3.99e-36,0.485
+poly_band_frac_min,141.1,2.28e-31,0.419
+poly_compactness,127.0,2.61e-28,0.377
+poly_spread,49.5,1.83e-11,0.143
+poly_n,44.3,2.35e-10,0.128
+poly_vertices,12.3,2.08e-03,0.031

@@ -1,0 +1,5 @@
+label4,n,exact_square,median_aspect,min_aspect,max_aspect,pct_padded,median_dark_frac
+Intact,317,284,1.0,0.843,1.357,17.4,0.0
+Hairline,159,134,1.0,0.9,1.41,50.9,0.131
+Star,68,58,1.0,0.883,1.155,55.9,0.172
+Network,108,97,1.0,0.913,1.056,41.7,0.082

@@ -1,0 +1,481 @@
+{
+  "stage": "01_data_exploration",
+  "generated_at": "2026-10-07T10:53:01",
+  "integrity_checks_total": 18,
+  "integrity_checks_failed": 0,
+  "n_eggs": 652,
+  "class_counts_label4": {
+    "Intact": 317,
+    "Hairline": 159,
+    "Network": 108,
+    "Star": 68
+  },
+  "class_counts_age": {
+    "Early lay": 218,
+    "Peak production": 217,
+    "Late lay": 217
+  },
+  "imbalance_ratio_label4": 4.66,
+  "association_tests": [
+    {
+      "comparison": "crack pattern x age class (cracked eggs only)",
+      "chi2": 5.676,
+      "dof": 4,
+      "p_value": 0.2247,
+      "cramers_v": 0.092,
+      "n": 335,
+      "min_expected_count": 20.9,
+      "assumption_ok": true
+    },
+    {
+      "comparison": "egg status x age class (all eggs)",
+      "chi2": 3.664,
+      "dof": 2,
+      "p_value": 0.1601,
+      "cramers_v": 0.075,
+      "n": 652,
+      "min_expected_count": 105.5,
+      "assumption_ok": true
+    },
+    {
+      "comparison": "four-class label x age class (all eggs)",
+      "chi2": 9.364,
+      "dof": 6,
+      "p_value": 0.1541,
+      "cramers_v": 0.085,
+      "n": 652,
+      "min_expected_count": 22.6,
+      "assumption_ok": true
+    }
+  ],
+  "root_cause_rules_deterministic": true,
+  "root_cause_rules": [
+    {
+      "crack_pattern": "Hairline",
+      "age_class": "Early lay",
+      "phys_pct": 30.0,
+      "mech_pct": 70.0
+    },
+    {
+      "crack_pattern": "Hairline",
+      "age_class": "Peak production",
+      "phys_pct": 40.0,
+      "mech_pct": 60.0
+    },
+    {
+      "crack_pattern": "Hairline",
+      "age_class": "Late lay",
+      "phys_pct": 55.0,
+      "mech_pct": 45.0
+    },
+    {
+      "crack_pattern": "Star",
+      "age_class": "Early lay",
+      "phys_pct": 15.0,
+      "mech_pct": 85.0
+    },
+    {
+      "crack_pattern": "Star",
+      "age_class": "Peak production",
+      "phys_pct": 20.0,
+      "mech_pct": 80.0
+    },
+    {
+      "crack_pattern": "Star",
+      "age_class": "Late lay",
+      "phys_pct": 30.0,
+      "mech_pct": 70.0
+    },
+    {
+      "crack_pattern": "Network",
+      "age_class": "Early lay",
+      "phys_pct": 50.0,
+      "mech_pct": 50.0
+    },
+    {
+      "crack_pattern": "Network",
+      "age_class": "Peak production",
+      "phys_pct": 60.0,
+      "mech_pct": 40.0
+    },
+    {
+      "crack_pattern": "Network",
+      "age_class": "Late lay",
+      "phys_pct": 75.0,
+      "mech_pct": 25.0
+    }
+  ],
+  "annotation_effort_median_s": {
+    "Intact": 12.6,
+    "Hairline": 41.7,
+    "Star": 44.4,
+    "Network": 39.0
+  },
+  "kruskal_leadtime_p": 2.4263516143491114e-58,
+  "order_effect_p": 1.39052986615691e-29,
+  "n_image_files": 652,
+  "n_missing_images": 0,
+  "n_unlabelled_images": 0,
+  "image_min_side": {
+    "min": 967,
+    "median": 1734,
+    "max": 4448
+  },
+  "all_images_square": false,
+  "confound_screen": [
+    {
+      "variable": "min_side",
+      "label": "image size (px)",
+      "H": 80.59,
+      "p_value": 0.0,
+      "epsilon_sq": 0.1197,
+      "p_holm": 0.0,
+      "significant_after_holm": true
+    },
+    {
+      "variable": "egg_mean_lum",
+      "label": "mean luminance inside egg",
+      "H": 48.11,
+      "p_value": 0.0,
+      "epsilon_sq": 0.0696,
+      "p_holm": 0.0,
+      "significant_after_holm": true
+    },
+    {
+      "variable": "egg_std_lum",
+      "label": "luminance SD inside egg",
+      "H": 60.67,
+      "p_value": 0.0,
+      "epsilon_sq": 0.089,
+      "p_holm": 0.0,
+      "significant_after_holm": true
+    },
+    {
+      "variable": "egg_frac_clipped_hi",
+      "label": "fraction of blown highlights",
+      "H": 12.31,
+      "p_value": 0.0064,
+      "epsilon_sq": 0.0144,
+      "p_holm": 0.0128,
+      "significant_after_holm": true
+    },
+    {
+      "variable": "lap_var_egg",
+      "label": "focus (Laplacian variance)",
+      "H": 95.41,
+      "p_value": 0.0,
+      "epsilon_sq": 0.1426,
+      "p_holm": 0.0,
+      "significant_after_holm": true
+    },
+    {
+      "variable": "egg_area_frac",
+      "label": "egg area / frame",
+      "H": 12.29,
+      "p_value": 0.0064,
+      "epsilon_sq": 0.0143,
+      "p_holm": 0.0064,
+      "significant_after_holm": true
+    },
+    {
+      "variable": "rb_ratio",
+      "label": "red/blue ratio (colour temperature)",
+      "H": 59.66,
+      "p_value": 0.0,
+      "epsilon_sq": 0.0874,
+      "p_holm": 0.0,
+      "significant_after_holm": true
+    }
+  ],
+  "n_partial_eggs": 8,
+  "n_semi_manual_crops": 134,
+  "n_manual_partial": 0,
+  "crop_method_class_p": 4.393498468147636e-17,
+  "mapping_rows_resolved": 652,
+  "n_polygon_size_mismatch": 0,
+  "geometry_discrimination": [
+    {
+      "feature": "poly_elongation_max",
+      "H": 170.5,
+      "p_value": "9.49e-38",
+      "epsilon_sq": 0.508
+    },
+    {
+      "feature": "poly_area_pct",
+      "H": 163.0,
+      "p_value": "3.99e-36",
+      "epsilon_sq": 0.485
+    },
+    {
+      "feature": "poly_band_frac_min",
+      "H": 141.1,
+      "p_value": "2.28e-31",
+      "epsilon_sq": 0.419
+    },
+    {
+      "feature": "poly_compactness",
+      "H": 127.0,
+      "p_value": "2.61e-28",
+      "epsilon_sq": 0.377
+    },
+    {
+      "feature": "poly_spread",
+      "H": 49.5,
+      "p_value": "1.83e-11",
+      "epsilon_sq": 0.143
+    },
+    {
+      "feature": "poly_n",
+      "H": 44.3,
+      "p_value": "2.35e-10",
+      "epsilon_sq": 0.128
+    },
+    {
+      "feature": "poly_vertices",
+      "H": 12.3,
+      "p_value": "2.08e-03",
+      "epsilon_sq": 0.031
+    }
+  ],
+  "geometry_only_classifier": {
+    "accuracy": 0.83,
+    "balanced_accuracy": 0.788,
+    "macro_f1": 0.789
+  },
+  "resolution_retention_median": {
+    "retain_224": 0.08,
+    "retain_288": 0.094,
+    "retain_320": 0.103,
+    "retain_384": 0.119,
+    "retain_448": 0.134,
+    "retain_512": 0.149
+  },
+  "figures": [
+    {
+      "stage": "01_data_exploration",
+      "file": "01_class_balance.png",
+      "caption": "Distribution of the detection target, the four-class morphology target and breeder age class"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "02_pattern_by_age_association.png",
+      "caption": "Association between crack morphology and breeder age class, with Pearson residuals"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "03_root_cause_rule_base.png",
+      "caption": "Expert rule base mapping crack morphology and breeder age class to the physiological share of cause"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "04_annotation_process.png",
+      "caption": "Annotation effort by class and stability of the class mix across the annotation session"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "05_capture_confound_screen.png",
+      "caption": "Distribution of capture variables by class, screening for shortcut features"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "06_egg_framing.png",
+      "caption": "Egg framing within the square crop and incidence of border-touching eggs"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "07_crack_geometry_by_pattern.png",
+      "caption": "Annotated crack geometry by morphology class, showing that the taxonomy is structurally grounded"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "08_geometry_only_baseline.png",
+      "caption": "Confusion matrix of a logistic-regression classifier using annotated crack geometry only"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "09_crack_spatial_distribution.png",
+      "caption": "Spatial distribution of annotated crack centroids by morphology class"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "10_resolution_sensitivity.png",
+      "caption": "Retention of crack detail at candidate network input sizes, used to justify the pre-processing resize"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "11_samples_intact.png",
+      "caption": "Representative candled images of class Intact with annotation polygons overlaid"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "12_samples_hairline.png",
+      "caption": "Representative candled images of class Hairline with annotation polygons overlaid"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "13_samples_star.png",
+      "caption": "Representative candled images of class Star with annotation polygons overlaid"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "14_samples_network.png",
+      "caption": "Representative candled images of class Network with annotation polygons overlaid"
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "15_difficult_cases.png",
+      "caption": "Eggs requiring the longest annotation time and those with the smallest annotated crack area"
+    }
+  ],
+  "tables": [
+    {
+      "stage": "01_data_exploration",
+      "file": "t01_schema_audit.csv",
+      "caption": "Schema and missingness audit of final_labels_v3.csv",
+      "shape": [
+        22,
+        5
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t02_label_integrity.csv",
+      "caption": "Label-file integrity audit against the annotation decision tree",
+      "shape": [
+        18,
+        2
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t03_class_balance_label4.csv",
+      "caption": "Four-class target distribution",
+      "shape": [
+        4,
+        2
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t04_age_class_balance.csv",
+      "caption": "Breeder age-class distribution",
+      "shape": [
+        3,
+        2
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t05_crosstab_pattern_x_age.csv",
+      "caption": "Crack pattern by breeder age class",
+      "shape": [
+        3,
+        3
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t06_association_tests.csv",
+      "caption": "Chi-square tests of independence between labels and breeder age class",
+      "shape": [
+        3,
+        7
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t07_recovered_root_cause_rules.csv",
+      "caption": "Root-cause rule base recovered from the labelled data (pattern x age -> phys/mech split)",
+      "shape": [
+        9,
+        7
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t08_annotation_effort.csv",
+      "caption": "Annotation time per egg by class (proxy for labelling difficulty)",
+      "shape": [
+        4,
+        6
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t09_class_by_annotation_order.csv",
+      "caption": "Class distribution across quartiles of annotation order (order-bias check)",
+      "shape": [
+        4,
+        4
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t10_image_geometry.csv",
+      "caption": "Image geometry after square cropping",
+      "shape": [
+        5,
+        8
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t11_capture_confound_screen.csv",
+      "caption": "Kruskal-Wallis screen for differences in capture conditions between the four classes",
+      "shape": [
+        7,
+        6
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t12_partial_eggs.csv",
+      "caption": "Eggs whose segmented region touches the frame border (partial / tightly cropped eggs)",
+      "shape": [
+        4,
+        3
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t16_crop_method_by_class.csv",
+      "caption": "Cropping method (automatic vs semi-manual) by class",
+      "shape": [
+        4,
+        2
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t13_crack_geometry_by_pattern.csv",
+      "caption": "Annotated crack geometry by morphology class",
+      "shape": [
+        3,
+        21
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t14_geometry_discrimination.csv",
+      "caption": "Kruskal-Wallis discrimination of morphology classes by annotated geometry",
+      "shape": [
+        7,
+        3
+      ]
+    },
+    {
+      "stage": "01_data_exploration",
+      "file": "t15_resolution_retention.csv",
+      "caption": "Median high-frequency energy retained inside the annotated crack region at each input size",
+      "shape": [
+        4,
+        6
+      ]
+    }
+  ],
+  "master_table": {
+    "path": "C:\\Users\\thara\\OneDrive\\Desktop\\Eggshell-Diagnostic-Research\\Artefact\\data\\processed\\master_table.csv",
+    "rows": 652,
+    "cols": 63
+  }
+}

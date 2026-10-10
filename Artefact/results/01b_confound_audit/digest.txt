@@ -1,0 +1,51 @@
+======================================================================
+NOTEBOOK 01b DIGEST -- CONFOUND AND LEAKAGE AUDIT
+======================================================================
+generated: 2026-10-07T11:57:03
+
+TEST A  metadata-only macro F1 = 0.612  [SEVERE]
+   4-class morphology   all capture features             macroF1=0.612  bal_acc=0.597
+   4-class morphology   resize-invariant                 macroF1=0.603  bal_acc=0.586
+   4-class morphology   resize + photometric-invariant   macroF1=0.479  bal_acc=0.47
+   binary detection     all capture features             macroF1=0.816  bal_acc=0.816
+   binary detection     resize-invariant                 macroF1=0.81   bal_acc=0.81
+   binary detection     resize + photometric-invariant   macroF1=0.702  bal_acc=0.703
+   top leaking features:
+      egg_std_lum            +0.0390
+      rb_ratio               +0.0154
+      egg_bbox_fill          +0.0147
+      egg_area_frac          +0.0089
+      lap_var_global         +0.0032
+      std_lum                +0.0030
+
+TEST B  signal vs artefact (% of class effect surviving crack exclusion)
+   focus (Laplacian variance)   eps2 0.143 -> 0.120   (84% remains)
+   mean luminance               eps2 0.070 -> 0.069   (100% remains)
+   luminance SD                 eps2 0.089 -> 0.053   (60% remains)
+
+TEST C  capture session structure
+   drift min_side         rho=+0.729  p=3.15e-109
+   drift egg_mean_lum     rho=-0.110  p=4.79e-03
+   drift egg_std_lum      rho=-0.196  p=4.33e-07
+   drift lap_var_egg      rho=+0.366  p=4.63e-22
+   drift rb_ratio         rho=+0.035  p=3.73e-01
+   class x capture-order decile: V = 0.31
+
+TEST D  padding eps2 = 0.1396
+
+TEST E  residual shortcut by policy
+   none (raw)                               macroF1=0.612
+   resize                                   macroF1=0.603
+   resize + per-image standardisation       macroF1=0.553
+   resize + standardisation + grayscale     macroF1=0.479
+   all + tight crop (no padding)            macroF1=0.325
+
+DECISIONS
+   - Metadata-only macro F1 is 0.612 (severe). Majority baseline is 0.164.
+   - Lowest residual shortcut comes from policy: 'all + tight crop (no padding)' (macro F1 0.325, 53% of raw).
+   - focus (Laplacian variance): 84% of the class effect survives crack exclusion -> mostly acquisition artefact.
+   - mean luminance: 100% of the class effect survives crack exclusion -> mostly acquisition artefact.
+   - luminance SD: 60% of the class effect survives crack exclusion -> mixed.
+   - Class vs capture-order decile V = 0.31. Session structure is material; notebook 02 will balance capture blocks across the split and report it.
+   - Padding differs by class with eps2 = 0.1396. Tight-cropping to the egg bounding box is required.
+======================================================================

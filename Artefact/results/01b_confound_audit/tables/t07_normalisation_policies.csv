@@ -1,0 +1,6 @@
+policy,n_features,macro_f1,balanced_acc,accuracy,baseline_macro_f1,residual_vs_raw
+none (raw),22,0.612,0.597,0.698,0.164,1.0
+resize,17,0.603,0.586,0.689,0.164,0.99
+resize + per-image standardisation,9,0.553,0.538,0.641,0.164,0.9
+resize + standardisation + grayscale,5,0.479,0.47,0.577,0.164,0.78
+all + tight crop (no padding),3,0.325,0.327,0.463,0.164,0.53

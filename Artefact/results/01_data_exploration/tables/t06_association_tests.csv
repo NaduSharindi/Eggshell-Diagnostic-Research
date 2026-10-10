@@ -1,0 +1,4 @@
+comparison,chi2,dof,p_value,cramers_v,n,min_expected_count,assumption_ok
+crack pattern x age class (cracked eggs only),5.676,4,0.2247,0.092,335,20.9,True
+egg status x age class (all eggs),3.664,2,0.1601,0.075,652,105.5,True
+four-class label x age class (all eggs),9.364,6,0.1541,0.085,652,22.6,True

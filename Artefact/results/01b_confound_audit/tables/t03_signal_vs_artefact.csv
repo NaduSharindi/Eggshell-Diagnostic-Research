@@ -1,0 +1,4 @@
+measure,eps2_whole_egg,p_whole_egg,eps2_crack_excluded,p_crack_excluded,pct_of_effect_remaining
+focus (Laplacian variance),0.1426,1.5067161716886176e-20,0.12,2.128285463443596e-17,84.1
+mean luminance,0.0696,2.0211548064154673e-10,0.0694,2.1392491355109428e-10,99.7
+luminance SD,0.089,4.225163786194144e-13,0.0531,3.7814020478560126e-08,59.7

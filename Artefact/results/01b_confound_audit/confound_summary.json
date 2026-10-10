@@ -1,0 +1,331 @@
+{
+  "stage": "01b_confound_audit",
+  "generated_at": "2026-10-07T11:57:03",
+  "shortcut_probe": [
+    {
+      "task": "4-class morphology",
+      "feature_set": "all capture features",
+      "n_features": 22,
+      "macro_f1": 0.612,
+      "balanced_acc": 0.597,
+      "accuracy": 0.698,
+      "baseline_macro_f1": 0.164
+    },
+    {
+      "task": "4-class morphology",
+      "feature_set": "resize-invariant",
+      "n_features": 17,
+      "macro_f1": 0.603,
+      "balanced_acc": 0.586,
+      "accuracy": 0.689,
+      "baseline_macro_f1": 0.164
+    },
+    {
+      "task": "4-class morphology",
+      "feature_set": "resize + photometric-invariant",
+      "n_features": 4,
+      "macro_f1": 0.479,
+      "balanced_acc": 0.47,
+      "accuracy": 0.577,
+      "baseline_macro_f1": 0.164
+    },
+    {
+      "task": "binary detection",
+      "feature_set": "all capture features",
+      "n_features": 22,
+      "macro_f1": 0.816,
+      "balanced_acc": 0.816,
+      "accuracy": 0.816,
+      "baseline_macro_f1": 0.339
+    },
+    {
+      "task": "binary detection",
+      "feature_set": "resize-invariant",
+      "n_features": 17,
+      "macro_f1": 0.81,
+      "balanced_acc": 0.81,
+      "accuracy": 0.81,
+      "baseline_macro_f1": 0.339
+    },
+    {
+      "task": "binary detection",
+      "feature_set": "resize + photometric-invariant",
+      "n_features": 4,
+      "macro_f1": 0.702,
+      "balanced_acc": 0.703,
+      "accuracy": 0.702,
+      "baseline_macro_f1": 0.339
+    }
+  ],
+  "shortcut_headline_macro_f1": 0.612,
+  "shortcut_band": "severe",
+  "shortcut_top_features": [
+    {
+      "feature": "egg_std_lum",
+      "importance": 0.039,
+      "sd": 0.0081
+    },
+    {
+      "feature": "rb_ratio",
+      "importance": 0.0154,
+      "sd": 0.004
+    },
+    {
+      "feature": "egg_bbox_fill",
+      "importance": 0.0147,
+      "sd": 0.0034
+    },
+    {
+      "feature": "egg_area_frac",
+      "importance": 0.0089,
+      "sd": 0.0034
+    },
+    {
+      "feature": "lap_var_global",
+      "importance": 0.0032,
+      "sd": 0.003
+    },
+    {
+      "feature": "std_lum",
+      "importance": 0.003,
+      "sd": 0.0019
+    }
+  ],
+  "signal_vs_artefact": [
+    {
+      "measure": "focus (Laplacian variance)",
+      "eps2_whole_egg": 0.1426,
+      "p_whole_egg": 0.0,
+      "eps2_crack_excluded": 0.12,
+      "p_crack_excluded": 0.0,
+      "pct_of_effect_remaining": 84.1
+    },
+    {
+      "measure": "mean luminance",
+      "eps2_whole_egg": 0.0696,
+      "p_whole_egg": 0.0,
+      "eps2_crack_excluded": 0.0694,
+      "p_crack_excluded": 0.0,
+      "pct_of_effect_remaining": 99.7
+    },
+    {
+      "measure": "luminance SD",
+      "eps2_whole_egg": 0.089,
+      "p_whole_egg": 0.0,
+      "eps2_crack_excluded": 0.0531,
+      "p_crack_excluded": 0.0,
+      "pct_of_effect_remaining": 59.7
+    }
+  ],
+  "capture_drift": [
+    {
+      "variable": "min_side",
+      "spearman_rho": 0.729,
+      "p_value": 3.150017479747312e-109
+    },
+    {
+      "variable": "egg_mean_lum",
+      "spearman_rho": -0.11,
+      "p_value": 0.004789553121504266
+    },
+    {
+      "variable": "egg_std_lum",
+      "spearman_rho": -0.196,
+      "p_value": 4.3312850791051865e-07
+    },
+    {
+      "variable": "lap_var_egg",
+      "spearman_rho": 0.366,
+      "p_value": 4.63126210725714e-22
+    },
+    {
+      "variable": "rb_ratio",
+      "spearman_rho": 0.035,
+      "p_value": 0.372734580643513
+    }
+  ],
+  "capture_order_class": {
+    "chi2": 187.7,
+    "p": 5.390797441618983e-26,
+    "cramers_v": 0.31
+  },
+  "aspect_padding": [
+    {
+      "label4": "Intact",
+      "n": "317",
+      "exact_square": "284",
+      "median_aspect": "1.0",
+      "min_aspect": "0.843",
+      "max_aspect": "1.357",
+      "pct_padded": "17.4",
+      "median_dark_frac": "0.0"
+    },
+    {
+      "label4": "Hairline",
+      "n": "159",
+      "exact_square": "134",
+      "median_aspect": "1.0",
+      "min_aspect": "0.9",
+      "max_aspect": "1.41",
+      "pct_padded": "50.9",
+      "median_dark_frac": "0.131"
+    },
+    {
+      "label4": "Star",
+      "n": "68",
+      "exact_square": "58",
+      "median_aspect": "1.0",
+      "min_aspect": "0.883",
+      "max_aspect": "1.155",
+      "pct_padded": "55.9",
+      "median_dark_frac": "0.172"
+    },
+    {
+      "label4": "Network",
+      "n": "108",
+      "exact_square": "97",
+      "median_aspect": "1.0",
+      "min_aspect": "0.913",
+      "max_aspect": "1.056",
+      "pct_padded": "41.7",
+      "median_dark_frac": "0.082"
+    }
+  ],
+  "padding_eps2": 0.1396,
+  "normalisation_policies": [
+    {
+      "policy": "none (raw)",
+      "n_features": 22,
+      "macro_f1": 0.612,
+      "balanced_acc": 0.597,
+      "accuracy": 0.698,
+      "baseline_macro_f1": 0.164,
+      "residual_vs_raw": 1.0
+    },
+    {
+      "policy": "resize",
+      "n_features": 17,
+      "macro_f1": 0.603,
+      "balanced_acc": 0.586,
+      "accuracy": 0.689,
+      "baseline_macro_f1": 0.164,
+      "residual_vs_raw": 0.99
+    },
+    {
+      "policy": "resize + per-image standardisation",
+      "n_features": 9,
+      "macro_f1": 0.553,
+      "balanced_acc": 0.538,
+      "accuracy": 0.641,
+      "baseline_macro_f1": 0.164,
+      "residual_vs_raw": 0.9
+    },
+    {
+      "policy": "resize + standardisation + grayscale",
+      "n_features": 5,
+      "macro_f1": 0.479,
+      "balanced_acc": 0.47,
+      "accuracy": 0.577,
+      "baseline_macro_f1": 0.164,
+      "residual_vs_raw": 0.78
+    },
+    {
+      "policy": "all + tight crop (no padding)",
+      "n_features": 3,
+      "macro_f1": 0.325,
+      "balanced_acc": 0.327,
+      "accuracy": 0.463,
+      "baseline_macro_f1": 0.164,
+      "residual_vs_raw": 0.53
+    }
+  ],
+  "decisions": [
+    "Metadata-only macro F1 is 0.612 (severe). Majority baseline is 0.164.",
+    "Lowest residual shortcut comes from policy: 'all + tight crop (no padding)' (macro F1 0.325, 53% of raw).",
+    "focus (Laplacian variance): 84% of the class effect survives crack exclusion -> mostly acquisition artefact.",
+    "mean luminance: 100% of the class effect survives crack exclusion -> mostly acquisition artefact.",
+    "luminance SD: 60% of the class effect survives crack exclusion -> mixed.",
+    "Class vs capture-order decile V = 0.31. Session structure is material; notebook 02 will balance capture blocks across the split and report it.",
+    "Padding differs by class with eps2 = 0.1396. Tight-cropping to the egg bounding box is required."
+  ],
+  "figures": [
+    {
+      "file": "01_metadata_shortcut.png",
+      "caption": "Classification from capture metadata alone, by feature set"
+    },
+    {
+      "file": "02_signal_vs_artefact.png",
+      "caption": "Capture-variable differences before and after excluding the annotated crack region"
+    },
+    {
+      "file": "03_capture_session_structure.png",
+      "caption": "Drift of capture conditions over capture order, with class composition by decile"
+    },
+    {
+      "file": "04_aspect_and_padding.png",
+      "caption": "Aspect ratio and letterbox padding by class"
+    },
+    {
+      "file": "05_normalisation_policies.png",
+      "caption": "Residual metadata shortcut under candidate pre-processing policies"
+    }
+  ],
+  "tables": [
+    {
+      "file": "t01_metadata_shortcut_probe.csv",
+      "caption": "Classification performance from capture metadata alone, with no image content",
+      "shape": [
+        6,
+        5
+      ]
+    },
+    {
+      "file": "t02_shortcut_feature_importance.csv",
+      "caption": "Permutation importance of capture variables for predicting class without image content",
+      "shape": [
+        22,
+        2
+      ]
+    },
+    {
+      "file": "t03_signal_vs_artefact.csv",
+      "caption": "Class differences in capture variables before and after excluding the annotated crack region",
+      "shape": [
+        3,
+        5
+      ]
+    },
+    {
+      "file": "t04_capture_drift.csv",
+      "caption": "Spearman correlation between capture order and capture conditions",
+      "shape": [
+        5,
+        2
+      ]
+    },
+    {
+      "file": "t05_class_by_capture_decile.csv",
+      "caption": "Class composition across deciles of capture order",
+      "shape": [
+        10,
+        4
+      ]
+    },
+    {
+      "file": "t06_aspect_and_padding.csv",
+      "caption": "Aspect ratio and letterbox padding by class",
+      "shape": [
+        4,
+        7
+      ]
+    },
+    {
+      "file": "t07_normalisation_policies.csv",
+      "caption": "Residual metadata shortcut under each candidate pre-processing policy",
+      "shape": [
+        5,
+        6
+      ]
+    }
+  ]
+}

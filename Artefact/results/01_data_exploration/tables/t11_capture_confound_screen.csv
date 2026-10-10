@@ -1,0 +1,8 @@
+variable,label,H,p_value,epsilon_sq,p_holm,significant_after_holm
+min_side,image size (px),80.59,0.0,0.1197,0.0,True
+egg_mean_lum,mean luminance inside egg,48.11,0.0,0.0696,0.0,True
+egg_std_lum,luminance SD inside egg,60.67,0.0,0.089,0.0,True
+egg_frac_clipped_hi,fraction of blown highlights,12.31,0.0064,0.0144,0.0128,True
+lap_var_egg,focus (Laplacian variance),95.41,0.0,0.1426,0.0,True
+egg_area_frac,egg area / frame,12.29,0.0064,0.0143,0.0064,True
+rb_ratio,red/blue ratio (colour temperature),59.66,0.0,0.0874,0.0,True
