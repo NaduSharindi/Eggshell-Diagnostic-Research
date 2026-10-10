@@ -1,0 +1,8 @@
+case,outcome,crashed
+1x1 pixel,"ran, p(crack)=0.33",False
+tiny 12x9,"ran, p(crack)=0.33",False
+uniform black,"ran, p(crack)=0.33",False
+uniform white,"ran, p(crack)=0.33",False
+pure noise,"ran, p(crack)=0.43",False
+extreme aspect 1200x80,"ran, p(crack)=0.33",False
+very large 5000x5000,"ran, p(crack)=0.33",False

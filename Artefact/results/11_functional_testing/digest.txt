@@ -1,0 +1,33 @@
+======================================================================
+NOTEBOOK 11 DIGEST -- FUNCTIONAL TESTING
+======================================================================
+generated: 2026-10-11T01:03:16
+12/12 tests passed
+
+   [PASS] T1    app preprocessing reproduces the cache
+            mean|diff| 0.68, min corr 0.9979, 0 unreadable
+   [PASS] T2    app reproduces notebook 07 predictions
+            agreement 100.0%, prob MAE 0.0034
+   [PASS] T3a   inference is deterministic
+            max |diff| 0.00e+00
+   [PASS] T3b   preprocessing is deterministic for a fixed seed
+            byte-identical
+   [PASS] T4    malformed input does not crash the app
+            0 crashes of 7
+   [PASS] T4b   corrupted bytes return None rather than raising
+            imdecode None
+   [PASS] T5a   rule base covers all 9 pattern x age cells
+            9/9
+   [PASS] T5b   every rule has interpretation and action text
+            0 empty
+   [PASS] T5c   phys% + mech% = 100 in every rule
+            0 violations
+   [PASS] T6a   detection threshold behaves as specified
+            3 cases
+   [PASS] T6b   uncertainty flag fires below the configured confidence
+            conf 0.200 < 0.6
+   [PASS] T7    CPU latency per egg is workable on a farm laptop
+            1285 ms end to end, 3-seed ensemble
+
+app vs notebook 07: {'label_agreement': 1.0, 'prob_mae': 0.00345, 'n': 40}
+======================================================================

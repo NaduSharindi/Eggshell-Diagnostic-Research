@@ -1,15 +1,15 @@
 ======================================================================
 NOTEBOOK 03 DIGEST -- AUGMENTATION POLICY
 ======================================================================
-generated: 2026-10-07T16:03:34
+generated: 2026-10-11T00:01:41
 training resolution: 384px
 
 RESIDUAL SHORTCUT UNDER EACH POLICY (macro F1 from capture statistics alone)
-   none               4cls=0.342  4cls_grp=0.297  bin=0.637
-   geometric_only     4cls=0.366  4cls_grp=0.323  bin=0.601
-   light              4cls=0.308  4cls_grp=0.282  bin=0.585
-   medium             4cls=0.295  4cls_grp=0.278  bin=0.565
-   heavy              4cls=0.262  4cls_grp=0.246  bin=0.559
+   none               4cls=0.361  4cls_grp=0.292  bin=0.654
+   geometric_only     4cls=0.387  4cls_grp=0.312  bin=0.594
+   light              4cls=0.349  4cls_grp=0.292  bin=0.629
+   medium             4cls=0.296  4cls_grp=0.287  bin=0.602
+   heavy              4cls=0.287  4cls_grp=0.285  bin=0.547
    majority baseline  4cls=0.164  4cls_grp=nan    bin=0.328
 
 CRACK EVIDENCE PRESERVED
@@ -20,13 +20,13 @@ CRACK EVIDENCE PRESERVED
    heavy              geom=1.0    contrast=0.823  pct_contrast>=0.70=70.1
 
 THROUGHPUT
-   none               384.3 img/s/core  ~3074.0 img/s with 8 workers
-   geometric_only     314.2 img/s/core  ~2514.0 img/s with 8 workers
-   light              111.3 img/s/core  ~891.0 img/s with 8 workers
-   medium             76.8 img/s/core  ~614.0 img/s with 8 workers
-   heavy              63.3 img/s/core  ~506.0 img/s with 8 workers
+   none               90.0 img/s/core  ~720.0 img/s with 8 workers
+   geometric_only     103.2 img/s/core  ~826.0 img/s with 8 workers
+   light              48.0 img/s/core  ~384.0 img/s with 8 workers
+   medium             26.3 img/s/core  ~210.0 img/s with 8 workers
+   heavy              24.4 img/s/core  ~195.0 img/s with 8 workers
 
 ADOPTED POLICY: medium
-   {'contrast_p05': 0.607, 'pct_contrast_above_floor': 90.1, 'leak_4class': 0.295, 'leak_4class_grouped': 0.278, 'leak_binary': 0.565, 'geom_retention': 1.0, 'contrast_retention': 0.934}
-   shortlist carried to notebook 05: ['light', 'medium']
+   {'contrast_p05': 0.607, 'pct_contrast_above_floor': 90.1, 'leak_4class': 0.296, 'leak_4class_grouped': 0.287, 'leak_binary': 0.602, 'geom_retention': 1.0, 'contrast_retention': 0.934}
+   shortlist carried to notebook 05: ['medium']
 ======================================================================

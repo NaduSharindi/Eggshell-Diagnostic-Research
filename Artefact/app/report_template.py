@@ -99,8 +99,15 @@ def build_markdown_report(df: pd.DataFrame, flock: dict, age_class: str,
             "",
         ]
         for a in flock["actions"]:
-            L.append(f"**{a['pattern']}** ({a['count']} egg{'s' if a['count'] > 1 else ''})  ")
-            L.append(f"{a['text']}")
+            # flock_assessment() supplies dicts keyed by crack pattern; tolerate a bare string
+            # so that a caller passing plain advice cannot break the download
+            if isinstance(a, dict):
+                n_eggs = a.get("count", 0)
+                L.append(f"**{a.get('pattern', 'Action')}** "
+                         f"({n_eggs} egg{'s' if n_eggs != 1 else ''})  ")
+                L.append(str(a.get("text", "")))
+            else:
+                L.append(str(a))
             L.append("")
     else:
         L += ["No micro-cracks were detected in this batch. No action required.", ""]

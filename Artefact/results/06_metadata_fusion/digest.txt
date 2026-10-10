@@ -1,12 +1,12 @@
 ======================================================================
 NOTEBOOK 06 DIGEST -- METADATA FUSION
 ======================================================================
-generated: 2026-10-09T15:55:53
+generated: 2026-10-11T00:38:37
 independence: chi2=4.501 p=0.3424 V=0.089
 
-   four_class     image 0.7593  +age 0.7608  diff +0.0015 ± 0.0227  tie
-   binary         image 0.8753  +age 0.8682  diff -0.0070 ± 0.0077  tie
-   pattern_only   image 0.7579  +age 0.7533  diff -0.0046 ± 0.0420  tie
+   four_class     image 0.7593  +age 0.7608  diff +0.0015 Â± 0.0227  tie
+   binary         image 0.8753  +age 0.8682  diff -0.0070 Â± 0.0077  tie
+   pattern_only   image 0.7579  +age 0.7533  diff -0.0046 Â± 0.0420  tie
 
 CONCLUSION: age does not improve perception; fuse at the decision layer
 ======================================================================

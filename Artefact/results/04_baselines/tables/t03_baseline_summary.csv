@@ -1,9 +1,9 @@
 baseline,4-class macro F1,4-class clf,binary macro F1,binary clf
 B0 most_frequent,0.164 ± 0.002,-,0.339 ± 0.004,-
 B0 stratified,0.288 ± 0.043,-,0.498 ± 0.021,-
-B1 capture statistics only,0.357 ± 0.044,logreg,0.666 ± 0.040,linsvc
-B2 texture (LBP + Gabor),0.529 ± 0.052,histgb,0.747 ± 0.017,histgb
-B2b texture + ridge response,0.559 ± 0.043,histgb,0.770 ± 0.021,histgb
-B3 automatic crack geometry,0.508 ± 0.029,histgb,0.749 ± 0.051,histgb
-B3b texture + ridge + geometry,0.565 ± 0.023,histgb,0.763 ± 0.025,histgb
+B1 capture statistics only,0.353 ± 0.031,logreg,0.671 ± 0.047,logreg
+B2 texture (LBP + Gabor),0.532 ± 0.037,histgb,0.749 ± 0.014,histgb
+B2b texture + ridge response,0.566 ± 0.038,histgb,0.774 ± 0.017,histgb
+B3 automatic crack geometry,0.511 ± 0.039,histgb,0.747 ± 0.052,histgb
+B3b texture + ridge + geometry,0.558 ± 0.027,histgb,0.768 ± 0.026,histgb
 B4 human polygon geometry (oracle),0.829 ± 0.035,linsvc,n/a (degenerate),-

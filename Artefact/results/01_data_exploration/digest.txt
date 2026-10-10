@@ -1,7 +1,7 @@
 ======================================================================
 NOTEBOOK 01 DIGEST
 ======================================================================
-generated            : 2026-10-07T10:53:01
+generated            : 2026-10-10T23:39:04
 eggs                 : 652   image files: 652
 integrity checks     : 18/18 passed
 class counts         : {'Intact': 317, 'Hairline': 159, 'Network': 108, 'Star': 68}

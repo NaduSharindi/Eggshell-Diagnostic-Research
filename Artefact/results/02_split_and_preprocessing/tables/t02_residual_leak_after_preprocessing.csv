@@ -1,6 +1,6 @@
 pipeline stage,4-class (random split),4-class (session-grouped),binary (random split),binary (session-grouped)
 before preprocessing,0.612,0.551,0.816,0.753
-after tight crop + resize,0.534,0.499,0.721,0.659
-after crop + resize + standardisation,0.346,0.291,0.651,0.619
-interior crop + standardisation,0.384,0.363,0.624,0.624
+after tight crop + resize,0.536,0.498,0.713,0.661
+after crop + resize + standardisation,0.339,0.318,0.639,0.608
+interior crop + standardisation,0.367,0.338,0.652,0.609
 majority baseline,0.164,,0.327,

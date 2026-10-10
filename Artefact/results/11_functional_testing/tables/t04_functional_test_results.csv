@@ -1,0 +1,13 @@
+id,test,result,detail
+T1,app preprocessing reproduces the cache,PASS,"mean|diff| 0.68, min corr 0.9979, 0 unreadable"
+T2,app reproduces notebook 07 predictions,PASS,"agreement 100.0%, prob MAE 0.0034"
+T3a,inference is deterministic,PASS,max |diff| 0.00e+00
+T3b,preprocessing is deterministic for a fixed seed,PASS,byte-identical
+T4,malformed input does not crash the app,PASS,0 crashes of 7
+T4b,corrupted bytes return None rather than raising,PASS,imdecode None
+T5a,rule base covers all 9 pattern x age cells,PASS,9/9
+T5b,every rule has interpretation and action text,PASS,0 empty
+T5c,phys% + mech% = 100 in every rule,PASS,0 violations
+T6a,detection threshold behaves as specified,PASS,3 cases
+T6b,uncertainty flag fires below the configured confidence,PASS,conf 0.200 < 0.6
+T7,CPU latency per egg is workable on a farm laptop,PASS,"1285 ms end to end, 3-seed ensemble"

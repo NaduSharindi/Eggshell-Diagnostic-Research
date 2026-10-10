@@ -1,6 +1,6 @@
 {
   "stage": "01_data_exploration",
-  "generated_at": "2026-10-07T10:53:01",
+  "generated_at": "2026-10-10T23:39:04",
   "integrity_checks_total": 18,
   "integrity_checks_failed": 0,
   "n_eggs": 652,
@@ -474,7 +474,7 @@
     }
   ],
   "master_table": {
-    "path": "C:\\Users\\thara\\OneDrive\\Desktop\\Eggshell-Diagnostic-Research\\Artefact\\data\\processed\\master_table.csv",
+    "path": "D:\\Eggshell-Diagnostic-Research\\Artefact\\data\\processed\\master_table.csv",
     "rows": 652,
     "cols": 63
   }

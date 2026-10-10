@@ -1,0 +1,89 @@
+{
+  "stage": "11_functional_testing",
+  "generated_at": "2026-10-11T01:03:16",
+  "n_tests": 12,
+  "n_passed": 12,
+  "results": [
+    {
+      "id": "T1",
+      "test": "app preprocessing reproduces the cache",
+      "result": "PASS",
+      "detail": "mean|diff| 0.68, min corr 0.9979, 0 unreadable"
+    },
+    {
+      "id": "T2",
+      "test": "app reproduces notebook 07 predictions",
+      "result": "PASS",
+      "detail": "agreement 100.0%, prob MAE 0.0034"
+    },
+    {
+      "id": "T3a",
+      "test": "inference is deterministic",
+      "result": "PASS",
+      "detail": "max |diff| 0.00e+00"
+    },
+    {
+      "id": "T3b",
+      "test": "preprocessing is deterministic for a fixed seed",
+      "result": "PASS",
+      "detail": "byte-identical"
+    },
+    {
+      "id": "T4",
+      "test": "malformed input does not crash the app",
+      "result": "PASS",
+      "detail": "0 crashes of 7"
+    },
+    {
+      "id": "T4b",
+      "test": "corrupted bytes return None rather than raising",
+      "result": "PASS",
+      "detail": "imdecode None"
+    },
+    {
+      "id": "T5a",
+      "test": "rule base covers all 9 pattern x age cells",
+      "result": "PASS",
+      "detail": "9/9"
+    },
+    {
+      "id": "T5b",
+      "test": "every rule has interpretation and action text",
+      "result": "PASS",
+      "detail": "0 empty"
+    },
+    {
+      "id": "T5c",
+      "test": "phys% + mech% = 100 in every rule",
+      "result": "PASS",
+      "detail": "0 violations"
+    },
+    {
+      "id": "T6a",
+      "test": "detection threshold behaves as specified",
+      "result": "PASS",
+      "detail": "3 cases"
+    },
+    {
+      "id": "T6b",
+      "test": "uncertainty flag fires below the configured confidence",
+      "result": "PASS",
+      "detail": "conf 0.200 < 0.6"
+    },
+    {
+      "id": "T7",
+      "test": "CPU latency per egg is workable on a farm laptop",
+      "result": "PASS",
+      "detail": "1285 ms end to end, 3-seed ensemble"
+    }
+  ],
+  "pixel_agreement": {
+    "mean_abs_diff": 0.677,
+    "min_corr": 0.99791
+  },
+  "prediction_agreement": {
+    "label_agreement": 1.0,
+    "prob_mae": 0.00345,
+    "n": 40
+  }
+}

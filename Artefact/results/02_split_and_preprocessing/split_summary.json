@@ -1,6 +1,6 @@
 {
   "stage": "02_split_and_preprocessing",
-  "generated_at": "2026-10-07T14:35:07",
+  "generated_at": "2026-10-10T23:50:01",
   "partial_from_box": [
     {
       "label4": "Intact",
@@ -97,24 +97,24 @@
     },
     {
       "pipeline stage": "after tight crop + resize",
-      "4-class (random split)": 0.534,
-      "4-class (session-grouped)": 0.499,
-      "binary (random split)": 0.721,
-      "binary (session-grouped)": 0.659
+      "4-class (random split)": 0.536,
+      "4-class (session-grouped)": 0.498,
+      "binary (random split)": 0.713,
+      "binary (session-grouped)": 0.661
     },
     {
       "pipeline stage": "after crop + resize + standardisation",
-      "4-class (random split)": 0.346,
-      "4-class (session-grouped)": 0.291,
-      "binary (random split)": 0.651,
-      "binary (session-grouped)": 0.619
+      "4-class (random split)": 0.339,
+      "4-class (session-grouped)": 0.318,
+      "binary (random split)": 0.639,
+      "binary (session-grouped)": 0.608
     },
     {
       "pipeline stage": "interior crop + standardisation",
-      "4-class (random split)": 0.384,
-      "4-class (session-grouped)": 0.363,
-      "binary (random split)": 0.624,
-      "binary (session-grouped)": 0.624
+      "4-class (random split)": 0.367,
+      "4-class (session-grouped)": 0.338,
+      "binary (random split)": 0.652,
+      "binary (session-grouped)": 0.609
     },
     {
       "pipeline stage": "majority baseline",
@@ -125,8 +125,8 @@
     }
   ],
   "leak_before": 0.612,
-  "leak_after": 0.346,
-  "leak_reduction_pct": 43.5,
+  "leak_after": 0.339,
+  "leak_reduction_pct": 44.6,
   "test_n": 98,
   "test_class_counts": {
     "Intact": 47,
@@ -134,16 +134,16 @@
     "Network": 18,
     "Star": 11
   },
-  "dev_test_separability": 0.479,
+  "dev_test_separability": 0.467,
   "dev_test_separability_baseline": 0.459,
-  "matched_n": 504,
+  "matched_n": 506,
   "matched_class_counts": {
-    "Intact": 252,
-    "Hairline": 123,
-    "Network": 83,
-    "Star": 46
+    "Intact": 253,
+    "Hairline": 127,
+    "Network": 75,
+    "Star": 51
   },
-  "matched_residual_probe": 0.53,
+  "matched_residual_probe": 0.482,
   "figures": [
     {
       "file": "01_preprocessing_before_after.png",
@@ -185,7 +185,7 @@
     }
   ],
   "cache": {
-    "path": "C:\\Users\\thara\\OneDrive\\Desktop\\Eggshell-Diagnostic-Research\\Artefact\\data\\processed\\cache_neutral_fill_448.npy",
+    "path": "D:\\Eggshell-Diagnostic-Research\\Artefact\\data\\processed\\cache_neutral_fill_448.npy",
     "side": 448,
     "mb": 392.6
   }

@@ -1,7 +1,7 @@
 policy,4-class (random),4-class (session-grouped),binary (random),binary (session-grouped)
-none,0.342,0.297,0.637,0.615
-geometric_only,0.366,0.323,0.601,0.574
-light,0.308,0.282,0.585,0.57
-medium,0.295,0.278,0.565,0.532
-heavy,0.262,0.246,0.559,0.516
+none,0.361,0.292,0.654,0.621
+geometric_only,0.387,0.312,0.594,0.566
+light,0.349,0.292,0.629,0.594
+medium,0.296,0.287,0.602,0.564
+heavy,0.287,0.285,0.547,0.534
 majority baseline,0.164,,0.328,

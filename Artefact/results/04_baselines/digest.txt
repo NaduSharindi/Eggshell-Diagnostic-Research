@@ -1,7 +1,7 @@
 ======================================================================
 NOTEBOOK 04 DIGEST -- BASELINES
 ======================================================================
-generated: 2026-10-07T17:03:43
+generated: 2026-10-11T00:11:07
 
 AUTOMATIC CRACK SEGMENTATION vs HUMAN POLYGONS
    median IoU    0.014
@@ -11,17 +11,17 @@ AUTOMATIC CRACK SEGMENTATION vs HUMAN POLYGONS
 BASELINE MACRO F1 (mean over 5 folds, stratified regime)
    B0 most_frequent                         4cls=0.164  bin=0.339
    B0 stratified                            4cls=0.288  bin=0.498
-   B1 capture statistics only               4cls=0.357  bin=0.666
-   B2 texture (LBP + Gabor)                 4cls=0.529  bin=0.747
-   B2b texture + ridge response             4cls=0.559  bin=0.770
-   B3 automatic crack geometry              4cls=0.508  bin=0.749
-   B3b texture + ridge + geometry           4cls=0.565  bin=0.763
+   B1 capture statistics only               4cls=0.353  bin=0.671
+   B2 texture (LBP + Gabor)                 4cls=0.532  bin=0.749
+   B2b texture + ridge response             4cls=0.566  bin=0.774
+   B3 automatic crack geometry              4cls=0.511  bin=0.747
+   B3b texture + ridge + geometry           4cls=0.558  bin=0.768
    B4 human polygon geometry (oracle)       4cls=0.829  bin=nan
 
 TARGETS FOR NOTEBOOK 05
-   acquisition_floor_4class       0.357
-   acquisition_floor_binary       0.666
-   best_classical_4class          0.565
-   best_classical_binary          0.770
+   acquisition_floor_4class       0.353
+   acquisition_floor_binary       0.671
+   best_classical_4class          0.566
+   best_classical_binary          0.774
    oracle_4class                  0.829
 ======================================================================

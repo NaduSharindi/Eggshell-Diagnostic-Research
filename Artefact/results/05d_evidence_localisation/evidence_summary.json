@@ -1,6 +1,6 @@
 {
   "stage": "05d_evidence_localisation",
-  "generated_at": "2026-10-09T11:16:34",
+  "generated_at": "2026-10-11T00:37:43",
   "reference": {
     "clean_4": 0.7431,
     "clean_2": 0.8717,
@@ -34,20 +34,6 @@
       "frame_kept": "58%"
     },
     {
-      "condition": "crack occluded 0.75",
-      "four_class": 0.6396,
-      "sd": 0.0543,
-      "binary": 0.8108,
-      "frame_kept": "44%"
-    },
-    {
-      "condition": "ONLY the crack kept (0.65)",
-      "four_class": 0.7656,
-      "sd": 0.0478,
-      "binary": 0.9079,
-      "frame_kept": "42%"
-    },
-    {
       "condition": "acquisition floor (no pixels)",
       "four_class": 0.295,
       "sd": NaN,
@@ -55,8 +41,6 @@
       "frame_kept": "0%"
     }
   ],
-  "sufficiency": 1.05,
-  "necessity": 0.19,
   "per_pattern": [
     {
       "condition": "crack occluded 0.75",

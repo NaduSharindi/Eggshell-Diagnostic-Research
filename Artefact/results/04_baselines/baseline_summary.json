@@ -1,6 +1,6 @@
 {
   "stage": "04_baselines",
-  "generated_at": "2026-10-07T17:03:43",
+  "generated_at": "2026-10-11T00:11:07",
   "ridge_threshold": 95.0,
   "ridge_sweep": [
     {
@@ -53,24 +53,24 @@
       "binary": 0.498
     },
     "B1 capture statistics only": {
-      "four_class": 0.357,
-      "binary": 0.666
+      "four_class": 0.353,
+      "binary": 0.671
     },
     "B2 texture (LBP + Gabor)": {
-      "four_class": 0.529,
-      "binary": 0.747
-    },
-    "B2b texture + ridge response": {
-      "four_class": 0.559,
-      "binary": 0.77
-    },
-    "B3 automatic crack geometry": {
-      "four_class": 0.508,
+      "four_class": 0.532,
       "binary": 0.749
     },
+    "B2b texture + ridge response": {
+      "four_class": 0.566,
+      "binary": 0.774
+    },
+    "B3 automatic crack geometry": {
+      "four_class": 0.511,
+      "binary": 0.747
+    },
     "B3b texture + ridge + geometry": {
-      "four_class": 0.565,
-      "binary": 0.763
+      "four_class": 0.558,
+      "binary": 0.768
     },
     "B4 human polygon geometry (oracle)": {
       "four_class": 0.829,
@@ -79,27 +79,27 @@
   },
   "baselines_grouped": {
     "4-class (session-grouped)": {
-      "B1 capture statistics only": 0.307,
-      "B2 texture (LBP + Gabor)": 0.404,
-      "B2b texture + ridge response": 0.453,
-      "B3 automatic crack geometry": 0.417,
-      "B3b texture + ridge + geometry": 0.473,
+      "B1 capture statistics only": 0.317,
+      "B2 texture (LBP + Gabor)": 0.385,
+      "B2b texture + ridge response": 0.463,
+      "B3 automatic crack geometry": 0.406,
+      "B3b texture + ridge + geometry": 0.48,
       "B4 human polygon geometry (oracle)": 0.769
     },
     "binary (session-grouped)": {
       "B1 capture statistics only": 0.607,
-      "B2 texture (LBP + Gabor)": 0.632,
-      "B2b texture + ridge response": 0.646,
-      "B3 automatic crack geometry": 0.627,
-      "B3b texture + ridge + geometry": 0.662,
+      "B2 texture (LBP + Gabor)": 0.638,
+      "B2b texture + ridge response": 0.667,
+      "B3 automatic crack geometry": 0.621,
+      "B3b texture + ridge + geometry": 0.654,
       "B4 human polygon geometry (oracle)": NaN
     }
   },
   "targets": {
-    "acquisition_floor_4class": 0.357,
-    "acquisition_floor_binary": 0.666,
-    "best_classical_4class": 0.565,
-    "best_classical_binary": 0.77,
+    "acquisition_floor_4class": 0.353,
+    "acquisition_floor_binary": 0.671,
+    "best_classical_4class": 0.566,
+    "best_classical_binary": 0.774,
     "oracle_4class": 0.829
   },
   "figures": [

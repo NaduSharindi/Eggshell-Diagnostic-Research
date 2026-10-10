@@ -1,6 +1,6 @@
 {
   "stage": "03_augmentation",
-  "generated_at": "2026-10-07T16:03:34",
+  "generated_at": "2026-10-11T00:01:41",
   "crack_preservation": [
     {
       "policy": "none",
@@ -56,38 +56,38 @@
   "leak_under_augmentation": [
     {
       "policy": "none",
-      "4-class (random)": 0.342,
-      "4-class (session-grouped)": 0.297,
-      "binary (random)": 0.637,
-      "binary (session-grouped)": 0.615
+      "4-class (random)": 0.361,
+      "4-class (session-grouped)": 0.292,
+      "binary (random)": 0.654,
+      "binary (session-grouped)": 0.621
     },
     {
       "policy": "geometric_only",
-      "4-class (random)": 0.366,
-      "4-class (session-grouped)": 0.323,
-      "binary (random)": 0.601,
-      "binary (session-grouped)": 0.574
+      "4-class (random)": 0.387,
+      "4-class (session-grouped)": 0.312,
+      "binary (random)": 0.594,
+      "binary (session-grouped)": 0.566
     },
     {
       "policy": "light",
-      "4-class (random)": 0.308,
-      "4-class (session-grouped)": 0.282,
-      "binary (random)": 0.585,
-      "binary (session-grouped)": 0.57
+      "4-class (random)": 0.349,
+      "4-class (session-grouped)": 0.292,
+      "binary (random)": 0.629,
+      "binary (session-grouped)": 0.594
     },
     {
       "policy": "medium",
-      "4-class (random)": 0.295,
-      "4-class (session-grouped)": 0.278,
-      "binary (random)": 0.565,
-      "binary (session-grouped)": 0.532
+      "4-class (random)": 0.296,
+      "4-class (session-grouped)": 0.287,
+      "binary (random)": 0.602,
+      "binary (session-grouped)": 0.564
     },
     {
       "policy": "heavy",
-      "4-class (random)": 0.262,
-      "4-class (session-grouped)": 0.246,
-      "binary (random)": 0.559,
-      "binary (session-grouped)": 0.516
+      "4-class (random)": 0.287,
+      "4-class (session-grouped)": 0.285,
+      "binary (random)": 0.547,
+      "binary (session-grouped)": 0.534
     },
     {
       "policy": "majority baseline",
@@ -104,41 +104,40 @@
   "throughput": [
     {
       "policy": "none",
-      "img_per_s_single_core": 384.3,
-      "est_img_per_s_8_workers": 3074.0
+      "img_per_s_single_core": 90.0,
+      "est_img_per_s_8_workers": 720.0
     },
     {
       "policy": "geometric_only",
-      "img_per_s_single_core": 314.2,
-      "est_img_per_s_8_workers": 2514.0
+      "img_per_s_single_core": 103.2,
+      "est_img_per_s_8_workers": 826.0
     },
     {
       "policy": "light",
-      "img_per_s_single_core": 111.3,
-      "est_img_per_s_8_workers": 891.0
+      "img_per_s_single_core": 48.0,
+      "est_img_per_s_8_workers": 384.0
     },
     {
       "policy": "medium",
-      "img_per_s_single_core": 76.8,
-      "est_img_per_s_8_workers": 614.0
+      "img_per_s_single_core": 26.3,
+      "est_img_per_s_8_workers": 210.0
     },
     {
       "policy": "heavy",
-      "img_per_s_single_core": 63.3,
-      "est_img_per_s_8_workers": 506.0
+      "img_per_s_single_core": 24.4,
+      "est_img_per_s_8_workers": 195.0
     }
   ],
   "chosen_policy": "medium",
   "shortlist": [
-    "light",
     "medium"
   ],
   "chosen_metrics": {
     "contrast_p05": 0.607,
     "pct_contrast_above_floor": 90.1,
-    "leak_4class": 0.295,
-    "leak_4class_grouped": 0.278,
-    "leak_binary": 0.565,
+    "leak_4class": 0.296,
+    "leak_4class_grouped": 0.287,
+    "leak_binary": 0.602,
     "geom_retention": 1.0,
     "contrast_retention": 0.934
   },
