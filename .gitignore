@@ -1,26 +1,166 @@
-# ---- append these lines to the repository-root .gitignore --------------
+# =============================================================================
+# Eggshell-Diagnostic-Research — repository .gitignore
+# =============================================================================
+# Principle: evidence is committed, regenerable bulk is not.
+#
+# Committed:     results/, data/processed/*.csv, data/annotations/, notebooks,
+#                source, the evaluation pack, figures and tables for Chapter 5.
+# Not committed: raw and cropped images, decoded caches, model weights, secrets,
+#                deployment state.
+# =============================================================================
 
-# Egg images: large, and not redistributed with the repository
+
+# --- Data: large, not redistributed ------------------------------------------
 Artefact/data/images/
 Artefact/data/raw/
+Artefact/data/interim/
 
-# Trained weights: regenerable, too large for git (use a release asset if needed)
-Artefact/models/*.pt
-Artefact/models/*.pth
-Artefact/models/*.ckpt
-Artefact/models/*.onnx
+# Decoded image caches written by notebook 02.
+# These are ~393 MB EACH and exceed GitHub's 100 MB hard per-file limit: a push
+# containing them is rejected outright, and once committed they remain in history
+# even after deletion. They are fully regenerable by re-running notebook 02.
+Artefact/data/processed/*.npy
+Artefact/data/processed/*.npz
+Artefact/data/processed/*.memmap
+Artefact/data/processed/cache_*
 
-# Transfer archives produced by tools/collect_outputs.py
+# The small derived tables ARE evidence and must be kept. Negations must come
+# after the patterns above or they have no effect.
+!Artefact/data/processed/*.csv
+!Artefact/data/processed/*.json
+
+
+# --- Model weights: regenerable, too large -----------------------------------
+# For AWS, ship these via S3 or a GitHub release asset, not through git.
+Artefact/models/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.tflite
+
+
+# --- Secrets: never commit ---------------------------------------------------
+# Streamlit reads secrets.toml automatically; committing it leaks whatever is in
+# it. The example file is committed so the required keys are documented.
+.streamlit/secrets.toml
+**/.streamlit/secrets.toml
+!**/.streamlit/secrets.toml.example
+!**/.streamlit/config.toml
+
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+credentials.json
+aws_credentials
+.aws/
+*_rsa
+*_rsa.pub
+id_ed25519*
+
+
+# --- AWS and deployment state ------------------------------------------------
+# Terraform state can contain secrets in plain text and must never be committed.
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# CDK / SAM / Serverless / Elastic Beanstalk
+cdk.out/
+.aws-sam/
+samconfig.toml
+.serverless/
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Docker build context leftovers
+.dockerignore.local
+docker-compose.override.yml
+
+# Deployment bundles
+deploy/*.zip
+deploy/build/
+*.tar.gz
+!Templates/**/*.tar.gz
+
+
+# --- Transfer archives -------------------------------------------------------
 eggshell_outputs*.zip
+Artefact/results/**/*.zip
 
-# Python / Jupyter noise
+
+# --- Python / Jupyter --------------------------------------------------------
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.installed.cfg
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 .venv/
-.env
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
 
-# NOTE: Artefact/results/ and Artefact/data/processed/ are deliberately NOT ignored.
-# They are the evidence for Chapter 5 and must be committed. master_table.csv
-# references images by file name only, so it is portable between machines.
+
+# --- Editors and operating systems -------------------------------------------
+.vscode/
+!.vscode/settings.json.example
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# OneDrive conflict copies. The repository lives under OneDrive on the work
+# machine, which silently creates these when a file is open on two devices.
+*-Conflict.*
+*(conflicted copy*
+* - Copy.*
+
+
+# --- Large binaries that occasionally appear ---------------------------------
+*.mp4
+*.mov
+*.psd
+*.sqlite
+*.db
+
+
+# =============================================================================
+# Deliberately NOT ignored — these are the evidence for Chapter 5
+# =============================================================================
+# Artefact/results/                  figures, tables, digests, runs.csv
+# Artefact/data/processed/*.csv      master_table, splits, post_stats, coverage
+# Artefact/data/annotations/         labels, annotation guideline, rule evidence
+# Artefact/data/metadata/            mapping, crop_log, review_log
+# Artefact/notebooks/                all notebooks, outputs cleared before commit
+# Artefact/src/, app/, tests/        source, dashboard, functional tests
+# Artefact/evaluation_pack/          consent, UAT script, SUS instrument
+#
+# master_table.csv and splits.csv reference images by file name only, so they
+# remain portable between machines without the image folder.
+# =============================================================================
