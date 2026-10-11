@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Eggshell Micro-Crack Diagnostics{% endblock %}</title>
+<meta name="description" content="Decision support for micro-crack detection and root-cause
+      diagnosis in poultry breeder farms.">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="{{ url_for('web.inspect') }}">
+      <span class="brand-name">Eggshell Micro-Crack Diagnostics</span>
+      <span class="brand-sub">Decision support for poultry breeder farms</span>
+    </a>
+    <nav class="tabs">
+      <a href="{{ url_for('web.inspect') }}" class="{{ 'on' if active=='inspect' }}">Inspect</a>
+      <a href="{{ url_for('web.batch') }}" class="{{ 'on' if active=='batch' }}">Batch</a>
+      <a href="{{ url_for('web.model_card') }}" class="{{ 'on' if active=='model' }}">Model</a>
+    </nav>
+  </div>
+</header>
+
+{% if not models_ready or not rules_ready %}
+<div class="wrap"><div class="alert err">
+  <strong>Service degraded.</strong>
+  {% if not models_ready %}Model checkpoints are not loaded.{% endif %}
+  {% if not rules_ready %}The root-cause rule base is not loaded.{% endif %}
+  Diagnoses are unavailable until this is resolved.
+</div></div>
+{% endif %}
+
+<main class="wrap">
+  {% with msgs = get_flashed_messages(with_categories=true) %}
+    {% if msgs %}{% for cat, m in msgs %}
+      <div class="alert {{ 'warn' if cat=='warn' else 'info' }}">{{ m }}</div>
+    {% endfor %}{% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="chip">{{ cfg.BACKBONE }}</span>
+    <span class="chip">{{ n_models }}-seed ensemble</span>
+    <span class="chip">threshold {{ '%.2f'|format(cfg.DETECTION_THRESHOLD) }}</span>
+    <p class="muted">Supports inspection by a qualified hatchery technician. Does not replace it.</p>
+  </div>
+</footer>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

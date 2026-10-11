@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% from "_settings.html" import settings_panel %}
+{% block content %}
+
+<form method="post" enctype="multipart/form-data" class="stack" data-busy>
+  {{ settings_panel(settings, age_classes, cfg) }}
+
+  <div class="panel">
+    <label class="full">Candled egg image
+      <input type="file" name="image" accept="image/*" required>
+    </label>
+    <button class="primary" type="submit">Analyse egg</button>
+  </div>
+</form>
+
+{% if not result %}
+  <div class="panel">
+    <h2>Measured performance</h2>
+    <div class="metrics four">
+      <div><span class="k">Detection macro F1</span><span class="v">{{ '%.3f'|format(PERF.detection_f1) }}</span></div>
+      <div><span class="k">Detection recall</span><span class="v">{{ '%.3f'|format(PERF.detection_recall) }}</span></div>
+      <div><span class="k">Morphology macro F1</span><span class="v">{{ '%.3f'|format(PERF.morph_f1) }}</span></div>
+      <div><span class="k">Localisation</span><span class="v">{{ '%.3f'|format(PERF.pointing) }}</span></div>
+    </div>
+    <p class="muted">Measured on {{ PERF.n_test }} held-out eggs, opened exactly once.
+      Capture statistics alone reach {{ '%.3f'|format(PERF.floor) }} on morphology and the best
+      classical pipeline {{ '%.3f'|format(PERF.classical) }}; read these figures against those,
+      not against chance. See the <a href="{{ url_for('web.model_card') }}">Model</a> page.</p>
+  </div>
+{% else %}
+  {% set p = result.prediction %}
+  <div class="verdict {{ 'v-crack' if p.status=='Micro_cracked' else 'v-ok' }}">
+    {% if p.status=='Micro_cracked' %}Micro-crack detected &mdash; {{ p.pattern }}
+    {% else %}Intact &mdash; no micro-crack detected{% endif %}
+  </div>
+  {% if p.needs_review %}
+  <div class="verdict v-warn">Low confidence &mdash; inspect this egg manually. Below
+    {{ '%.0f'|format(settings.low_confidence*100) }}% confidence, measured accuracy falls under 50%.</div>
+  {% endif %}
+
+  <div class="metrics four">
+    <div><span class="k">Crack probability</span><span class="v">{{ '%.1f'|format(p.crack_probability*100) }}%</span></div>
+    <div><span class="k">Morphology</span><span class="v">{{ p.pattern or 'None' }}</span></div>
+    <div><span class="k">Confidence</span><span class="v">{{ '%.1f'|format(p.confidence*100) }}%</span></div>
+    <div><span class="k">Processing time</span><span class="v">{{ '%.0f'|format(p.elapsed_ms) }} ms</span></div>
+  </div>
+
+  <div class="grid-2">
+    <figure class="panel">
+      <h3>Preprocessed image</h3>
+      <img src="{{ result.image }}" alt="Preprocessed candled egg">
+      <figcaption class="muted">Egg isolated, background neutralised, per-channel standardised</figcaption>
+    </figure>
+    <figure class="panel">
+      <h3>Predicted crack localisation</h3>
+      <img src="{{ result.overlay }}" alt="Crack localisation overlay">
+      <figcaption class="muted">Segmentation head, validated against expert annotations at
+        pointing game {{ '%.3f'|format(PERF.pointing) }}</figcaption>
+    </figure>
+  </div>
+
+  <details class="panel">
+    <summary>Class probabilities</summary>
+    <ul class="bars">
+      {% for name, prob in result.probabilities %}
+      <li><span class="lbl">{{ name }}</span>
+        <span class="track"><span class="fill c-{{ name|lower }}" style="width: {{ (prob*100)|round(1) }}%"></span></span>
+        <span class="val">{{ '%.1f'|format(prob*100) }}%</span></li>
+      {% endfor %}
+    </ul>
+  </details>
+
+  {% if p.status=='Micro_cracked' %}
+    {% if result.rule %}
+    <section class="panel">
+      <h2>Probable root cause</h2>
+      <p class="muted">For a <strong>{{ p.pattern }}</strong> crack in a
+         <strong>{{ settings.age_class }}</strong> flock</p>
+      <div class="metrics two">
+        <div><span class="k">Physiological / nutritional</span><span class="v">{{ '%.0f'|format(result.rule.phys) }}%</span></div>
+        <div><span class="k">Mechanical / environmental</span><span class="v">{{ '%.0f'|format(result.rule.mech) }}%</span></div>
+      </div>
+      <div class="split"><span class="phys" style="width: {{ result.rule.phys }}%"></span></div>
+      <p class="muted">{{ '%.0f'|format(result.rule.phys) }}% shell weakness &nbsp;&nbsp;
+         {{ '%.0f'|format(result.rule.mech) }}% impact or handling</p>
+      <h3>Interpretation</h3><div class="callout info">{{ result.rule.interpretation }}</div>
+      <h3>Suggested actions</h3><div class="callout ok">{{ result.rule.actions }}</div>
+      <details>
+        <summary>How reliable is this attribution?</summary>
+        <p>A deterministic lookup on crack morphology and flock lay stage, assembled from Ross 308
+           specifications and the crack-morphology literature with a hatchery manager. It is
+           <strong>not</strong> learned from data and has <strong>not</strong> been validated
+           against hatch outcomes.</p>
+        <p>Age class is supplied by you rather than predicted, so every attribution error traces
+           back to a morphology error. On the held-out test set the attribution was exact for
+           <strong>{{ PERF.attribution_exact_pct }}%</strong> of cracked eggs, with a mean error of
+           <strong>{{ PERF.attribution_mae_pts }} percentage points</strong>. The dominant cause
+           reversed on <strong>{{ PERF.dominant_flip_pct }}%</strong>, almost all Star and Network
+           confusions, which shift the split by 40 points.</p>
+        <p>A single egg is weak evidence for a management decision. Use the
+           <a href="{{ url_for('web.batch') }}">Batch</a> view for a flock-level assessment.</p>
+      </details>
+    </section>
+    {% else %}
+    <div class="alert err">No rule is defined for ({{ p.pattern }}, {{ settings.age_class }}).</div>
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% endblock %}

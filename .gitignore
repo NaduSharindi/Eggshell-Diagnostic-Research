@@ -149,6 +149,20 @@ $RECYCLE.BIN/
 *.sqlite
 *.db
 
+# The CI/CD pipeline builds the Docker image on a GitHub-hosted runner, which only sees what is
+# committed. The three final checkpoints (~15 MB each) and the rule-base CSV therefore have to be
+# in the repository. Everything else under models/ and data/processed/ stays ignored.
+#
+# Order matters: a directory must be un-ignored before files inside it can be.
+# ---------------------------------------------------------------------------
+Artefact/models/*
+!Artefact/models/final/
+Artefact/models/final/*
+!Artefact/models/final/final_efficientnet_b0_multitask_seg_seed*.pt
+
+Artefact/data/processed/*
+!Artefact/data/processed/root_cause_rules_recovered.csv
+
 
 # =============================================================================
 # Deliberately NOT ignored — these are the evidence for Chapter 5

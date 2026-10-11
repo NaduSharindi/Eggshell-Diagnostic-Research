@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% from "_settings.html" import settings_panel %}
+{% block content %}
+
+<h1>Tray or flock sample</h1>
+<p class="muted">A single egg rarely justifies changing feed or stopping a belt. A batch does.
+   Upload every egg from a tray, or a sample from one flock.</p>
+
+<form method="post" enctype="multipart/form-data" class="stack" data-busy>
+  {{ settings_panel(settings, age_classes, cfg, show_notes=true) }}
+  <div class="panel">
+    <label class="full">Candled egg images
+      <input type="file" name="images" accept="image/*" multiple required>
+      <small>Up to {{ cfg.MAX_BATCH_FILES }} images per batch.</small>
+    </label>
+    <button class="primary" type="submit">Analyse batch</button>
+  </div>
+</form>
+
+{% if job %}
+  {% set s = job.summary %}{% set f = job.flock %}
+  <div class="metrics four">
+    <div><span class="k">Eggs inspected</span><span class="v">{{ s.n_readable }}</span></div>
+    <div><span class="k">Micro-cracks</span><span class="v">{{ s.n_cracked }}</span>
+         <span class="delta bad">{{ '%.1f'|format(s.crack_rate) }}% of batch</span></div>
+    <div><span class="k">Needs manual review</span><span class="v">{{ s.n_review }}</span></div>
+    <div><span class="k">Unreadable</span><span class="v">{{ s.n_unreadable }}</span></div>
+  </div>
+
+  {% if s.n_cracked %}
+  <div class="grid-2">
+    <section class="panel">
+      <h3>Crack morphology mix</h3>
+      <ul class="bars">
+        {% for pat in ['Hairline','Star','Network'] %}
+        {% set c = f.counts.get(pat, 0) %}
+        <li><span class="lbl">{{ pat }}</span>
+          <span class="track"><span class="fill c-{{ pat|lower }}"
+            style="width: {{ (c / job.max_count * 100)|round(1) if job.max_count else 0 }}%"></span></span>
+          <span class="val">{{ c }}</span></li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section class="panel">
+      <h3>Batch root cause</h3>
+      <div class="metrics one">
+        <div><span class="k">Physiological / nutritional</span>
+             <span class="v">{{ '%.0f'|format(f.phys) }}%</span></div>
+      </div>
+      <div class="split"><span class="phys" style="width: {{ f.phys }}%"></span></div>
+      <p class="muted">{{ '%.0f'|format(f.phys) }}% shell weakness &nbsp;&nbsp;
+         {{ '%.0f'|format(f.mech) }}% impact or handling</p>
+      <p><strong>{{ f.verdict }}</strong></p>
+    </section>
+  </div>
+
+  <h3>Recommended actions for this flock</h3>
+  {% for a in f.actions %}
+  <div class="panel action">
+    <div class="action-head">{{ a.pattern }} &mdash; {{ a.count }} egg{{ 's' if a.count != 1 }}
+      ({{ '%.0f'|format(a.phys) }}% physiological)</div>
+    <p>{{ a.text }}</p>
+  </div>
+  {% endfor %}
+
+  {% if job.thumbs %}
+  <details class="panel">
+    <summary>Detected cracks ({{ job.thumbs|length }} shown)</summary>
+    <div class="thumbs">
+      {% for t in job.thumbs %}
+      <figure>
+        <img src="{{ t.image }}" alt="{{ t.file }}">
+        <figcaption>{{ t.file }} &middot; {{ t.pattern }} &middot;
+          {{ '%.0f'|format(t.confidence*100) }}%{% if t.needs_review %}
+          <span class="flag">review</span>{% endif %}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
+  {% endif %}
+
+  <section class="panel">
+    <h3>Per-egg results</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th>Egg</th><th>Status</th><th>Morphology</th><th>Crack prob.</th>
+          <th>Confidence</th><th>Physiological %</th><th>Mechanical %</th><th>Review</th>
+        </tr></thead>
+        <tbody>
+        {% for r in job.records %}
+          <tr class="{{ 'row-crack' if r.status=='Micro_cracked' }}{{ ' row-bad' if r.status=='unreadable' }}">
+            <td>{{ r.file }}</td>
+            <td>{{ r.status }}</td>
+            <td>{{ r.pattern or '—' }}</td>
+            <td>{{ '%.3f'|format(r.crack_probability) if r.crack_probability is not none else '—' }}</td>
+            <td>{{ '%.3f'|format(r.confidence) if r.confidence is not none else '—' }}</td>
+            <td>{{ '%.0f'|format(r.physiological_pct) if r.physiological_pct is not none else '—' }}</td>
+            <td>{{ '%.0f'|format(r.mechanical_pct) if r.mechanical_pct is not none else '—' }}</td>
+            <td>{{ 'yes' if r.needs_review else '' }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="grid-2">
+    <a class="btn" href="{{ url_for('web.batch_csv', job_id=request.args.get('job')) }}">Download results (CSV)</a>
+    <a class="btn" href="{{ url_for('web.batch_report', job_id=request.args.get('job')) }}">Download report (Markdown)</a>
+  </div>
+  <p class="muted">Results are held in memory for {{ cfg.JOB_TTL_SECONDS // 60 }} minutes.
+     Download anything you need to keep.</p>
+{% endif %}
+{% endblock %}

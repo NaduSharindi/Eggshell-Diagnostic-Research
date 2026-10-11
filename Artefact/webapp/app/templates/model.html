@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Model card</h1>
+
+<div class="metrics three">
+  <div><span class="k">Crack detection macro F1</span><span class="v">{{ '%.3f'|format(PERF.detection_f1) }}</span></div>
+  <div><span class="k">Morphology macro F1</span><span class="v">{{ '%.3f'|format(PERF.morph_f1) }}</span>
+       <span class="delta">95% CI {{ '%.3f'|format(PERF.morph_ci_low) }}–{{ '%.3f'|format(PERF.morph_ci_high) }}</span></div>
+  <div><span class="k">Localisation pointing game</span><span class="v">{{ '%.3f'|format(PERF.pointing) }}</span></div>
+</div>
+
+<section class="panel">
+  <table class="kv">
+    <tr><th>Architecture</th><td>EfficientNet-B0, multi-task, auxiliary segmentation head
+        ({{ PERF.params_m }} M parameters)</td></tr>
+    <tr><th>Input</th><td>{{ cfg.TRAIN_SIDE }} × {{ cfg.TRAIN_SIDE }}, egg isolated and background
+        neutralised, per-image per-channel standardisation</td></tr>
+    <tr><th>Training data</th><td>{{ PERF.n_train }} candled hatching eggs, single annotator,
+        verified by a hatchery manager</td></tr>
+    <tr><th>Test data</th><td>{{ PERF.n_test }} eggs, sealed before any modelling and opened
+        exactly once</td></tr>
+    <tr><th>Detection</th><td>macro F1 {{ '%.3f'|format(PERF.detection_f1) }},
+        ROC-AUC {{ '%.3f'|format(PERF.detection_auc) }},
+        recall {{ '%.3f'|format(PERF.detection_recall) }}</td></tr>
+    <tr><th>Morphology</th><td>macro F1 {{ '%.3f'|format(PERF.morph_f1) }}
+        (95% CI {{ '%.3f'|format(PERF.morph_ci_low) }}–{{ '%.3f'|format(PERF.morph_ci_high) }})</td></tr>
+    <tr><th>Localisation</th><td>pointing game {{ '%.3f'|format(PERF.pointing) }},
+        energy inside expert polygon {{ '%.3f'|format(PERF.energy) }}</td></tr>
+  </table>
+</section>
+
+<section class="panel">
+  <h2>Reference points</h2>
+  <p>Capture statistics alone — image size, brightness and colour, with no egg content whatsoever —
+     reach <strong>{{ '%.3f'|format(PERF.floor) }}</strong> on morphology. The best classical
+     pipeline, combining texture descriptors, ridge filtering and crack geometry, reaches
+     <strong>{{ '%.3f'|format(PERF.classical) }}</strong>. Read every figure above against those,
+     not against chance.</p>
+</section>
+
+{% if matrix %}
+<section class="panel">
+  <h2>Root-cause rule base</h2>
+  <p class="muted">Physiological share of attributed cause, by crack morphology and flock lay stage.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Pattern</th>{% for a in age_classes %}<th>{{ a }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for row in matrix %}
+      <tr><th>{{ row.pattern }}</th>
+        {% for a in age_classes %}
+          <td class="heat" style="--v: {{ (row[a] or 0) / 100 }}">
+            {{ '%.0f'|format(row[a]) if row[a] is not none else '—' }}%</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p class="muted">Deterministic expert rules from Ross 308 specifications and the
+     crack-morphology literature. Not learned from data and not validated against hatch outcomes.</p>
+</section>
+{% endif %}
+
+<section class="panel">
+  <h2>Known limitations</h2>
+  <ul class="limits">
+    <li><strong>Single annotator.</strong> All labels come from one person, verified by a domain
+        expert but not independently double-rated, so inter-rater reliability is unknown.</li>
+    <li><strong>One farm, one capture setup.</strong> Every training image comes from a single
+        light-proof box and a single smartphone. A session-held-out evaluation lost about
+        {{ '%.3f'|format(PERF.grouped_gap) }} macro F1, so expect some loss on new equipment.</li>
+    <li><strong>Star is the smallest class.</strong> 68 eggs in total, 11 in the test set, so its
+        confidence interval is wide, 0.55 to 0.94.</li>
+    <li><strong>Star and Network confusions are the expensive ones.</strong> They shift the
+        root-cause split by 40 percentage points and reverse the dominant cause in every age
+        class.</li>
+    <li><strong>The root cause is expert knowledge, not measurement.</strong> Never validated
+        against hatch outcomes.</li>
+    <li><strong>Not validated for grading or sale decisions.</strong> It supports inspection; it
+        does not replace it.</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h2>API</h2>
+  <p class="muted">For integration with other equipment, such as a future conveyor-mounted camera.</p>
+  <pre><code>GET  /api/v1/health     liveness
+GET  /api/v1/ready      readiness, including model state
+GET  /api/v1/info       this model card as JSON
+GET  /api/v1/rules      the root-cause rule base
+POST /api/v1/inspect    multipart "image", plus "age_class"
+POST /api/v1/batch      multipart "images", plus "age_class"</code></pre>
+</section>
+{% endblock %}

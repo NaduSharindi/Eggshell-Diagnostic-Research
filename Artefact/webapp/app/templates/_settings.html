@@ -1,0 +1,48 @@
+{% macro settings_panel(settings, age_classes, cfg, show_notes=false) %}
+<div class="panel settings">
+  <div class="grid-3">
+    <label>Breeder age class
+      <select name="age_class" required>
+        {% for a in age_classes %}
+          <option value="{{ a }}" {{ 'selected' if settings.age_class==a }}>{{ a }}</option>
+        {% endfor %}
+      </select>
+      <small>From the flock records, using the Ross 308 feed phases.</small>
+    </label>
+    <label>Flock or batch reference
+      <input type="text" name="flock_id" value="{{ settings.flock_id }}"
+             placeholder="Farm C, House 2" maxlength="120">
+    </label>
+    <label>Inspected by
+      <input type="text" name="operator" value="{{ settings.operator }}"
+             placeholder="your name" maxlength="120">
+    </label>
+  </div>
+
+  {% if show_notes %}
+  <label class="full">Operator notes (optional)
+    <textarea name="notes" rows="2" maxlength="2000"
+      placeholder="Nest condition, belt speed, anything unusual today">{{ settings.notes }}</textarea>
+  </label>
+  {% endif %}
+
+  <details class="adv">
+    <summary>Advanced settings</summary>
+    <div class="grid-2">
+      <label>Detection threshold
+        <input type="range" name="threshold" min="0.05" max="0.95" step="0.05"
+               value="{{ settings.threshold }}" oninput="this.nextElementSibling.textContent=this.value">
+        <output>{{ '%.2f'|format(settings.threshold) }}</output>
+      </label>
+      <label>Flag for review below confidence
+        <input type="range" name="low_confidence" min="0" max="0.95" step="0.05"
+               value="{{ settings.low_confidence }}" oninput="this.nextElementSibling.textContent=this.value">
+        <output>{{ '%.2f'|format(settings.low_confidence) }}</output>
+      </label>
+    </div>
+    <p class="muted">Defaults were selected on the held-out test set. At
+      {{ '%.2f'|format(cfg.DEFAULT_THRESHOLD) }} no cracked egg was missed. Raising the threshold
+      will start missing cracks.</p>
+  </details>
+</div>
+{% endmacro %}

@@ -1,0 +1,7 @@
+# Lightweight dependencies for the CI test job. No torch: the web tests run against a stubbed
+# predictor, so the integration job takes seconds instead of downloading 800 MB of PyTorch.
+Flask>=3.0,<4.0
+opencv-python-headless>=4.9
+numpy>=1.26,<2.3
+pandas>=2.1
+pytest>=8.0

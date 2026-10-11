@@ -1,0 +1,187 @@
+# .github/workflows/main.yaml
+#
+# CI/CD for the Eggshell Micro-Crack Diagnostics web application.
+#
+#   1. Continuous Integration   GitHub-hosted runner. Syntax check, web tests, model contract
+#                               tests, and a check that the deployment assets are committed.
+#   2. Continuous Delivery      GitHub-hosted runner. Build the Docker image, push to ECR,
+#                               tagged with both the commit SHA and "latest".
+#   3. Continuous Deployment    Self-hosted runner on the EC2 instance. Pull the exact SHA that
+#                               was just built, replace the running container, and refuse to
+#                               report success until the readiness probe confirms the models
+#                               loaded.
+#
+# The deploy step pulls by commit SHA, never by "latest". Pulling "latest" on the instance races
+# against any other push and can silently deploy a different build from the one that passed CI.
+
+name: CI/CD - Eggshell Diagnostics
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Artefact/webapp/**"
+      - "Artefact/src/**"
+      - "Artefact/models/final/**"
+      - "Artefact/data/processed/root_cause_rules_recovered.csv"
+      - "Artefact/tests/**"
+      - ".github/workflows/main.yaml"
+  workflow_dispatch:          # lets you redeploy by hand from the Actions tab
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false   # never abort a deployment half way through
+
+jobs:
+  integration:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: Artefact/webapp/requirements-ci.txt
+
+      - name: Install test dependencies
+        run: pip install -r Artefact/webapp/requirements-ci.txt
+
+      - name: Syntax check
+        run: python -m compileall -q Artefact/webapp Artefact/src
+
+      - name: Deployment assets are committed
+        run: |
+          set -e
+          test -f Artefact/data/processed/root_cause_rules_recovered.csv \
+            || { echo "::error::rule base CSV is not committed"; exit 1; }
+          n=$(ls Artefact/models/final/final_efficientnet_b0_multitask_seg_seed*.pt 2>/dev/null | wc -l)
+          echo "model checkpoints found: $n"
+          [ "$n" -ge 1 ] || { echo "::error::no checkpoints in Artefact/models/final"; exit 1; }
+
+      - name: Web application tests
+        run: pytest Artefact/webapp/tests -v
+
+      - name: Artefact contract tests
+        # model-dependent tests skip without torch; preprocessing, rule-base and report tests run
+        run: pytest Artefact/tests/test_artefact.py -v
+
+  build-and-push-ecr-image:
+    name: Continuous Delivery
+    needs: integration
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.build.outputs.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Free disk space
+        # the torch wheel and the image together exceed the default runner's free space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          docker system prune -af || true
+          df -h /
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag and push image
+        id: build
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          set -e
+          IMAGE="$ECR_REGISTRY/$ECR_REPOSITORY"
+          docker build -f Artefact/webapp/Dockerfile \
+            --label org.opencontainers.image.revision=$IMAGE_TAG \
+            -t $IMAGE:$IMAGE_TAG -t $IMAGE:latest .
+          docker push $IMAGE:$IMAGE_TAG
+          docker push $IMAGE:latest
+          echo "image=$IMAGE:$IMAGE_TAG" >> "$GITHUB_OUTPUT"
+          echo "pushed $IMAGE:$IMAGE_TAG"
+
+  continuous-deployment:
+    name: Continuous Deployment
+    needs: build-and-push-ecr-image
+    runs-on: self-hosted
+    env:
+      CONTAINER: eggshell
+      HOST_PORT: "80"
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Pull the image that passed CI
+        run: docker pull ${{ needs.build-and-push-ecr-image.outputs.image }}
+
+      - name: Record the currently running image for rollback
+        id: previous
+        run: |
+          prev=$(docker inspect --format '{{.Config.Image}}' $CONTAINER 2>/dev/null || true)
+          echo "image=$prev" >> "$GITHUB_OUTPUT"
+          echo "previous image: ${prev:-none}"
+
+      - name: Replace the running container
+        run: |
+          docker rm -f $CONTAINER 2>/dev/null || true
+          docker run -d --name $CONTAINER --restart unless-stopped \
+            -p $HOST_PORT:8000 \
+            -e SECRET_KEY='${{ secrets.FLASK_SECRET_KEY }}' \
+            -e TORCH_NUM_THREADS=2 \
+            -e GUNICORN_THREADS=4 \
+            --memory=3g \
+            ${{ needs.build-and-push-ecr-image.outputs.image }}
+
+      - name: Wait until the models are loaded
+        id: ready
+        run: |
+          for i in $(seq 1 40); do
+            if curl -fsS http://localhost:$HOST_PORT/api/v1/ready > /tmp/ready.json; then
+              echo "service ready after $((i*5)) s"; cat /tmp/ready.json; exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::service did not become ready within 200 s"
+          docker logs --tail 120 $CONTAINER
+          exit 1
+
+      - name: Roll back on failure
+        if: failure() && steps.previous.outputs.image != ''
+        run: |
+          echo "rolling back to ${{ steps.previous.outputs.image }}"
+          docker rm -f $CONTAINER 2>/dev/null || true
+          docker run -d --name $CONTAINER --restart unless-stopped \
+            -p $HOST_PORT:8000 \
+            -e SECRET_KEY='${{ secrets.FLASK_SECRET_KEY }}' \
+            -e TORCH_NUM_THREADS=2 -e GUNICORN_THREADS=4 --memory=3g \
+            ${{ steps.previous.outputs.image }}
+
+      - name: Remove unused images
+        # an EC2 root volume fills up after a handful of 1.2 GB deployments otherwise
+        if: success()
+        run: docker image prune -af
