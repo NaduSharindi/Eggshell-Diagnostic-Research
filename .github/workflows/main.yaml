@@ -137,7 +137,9 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Pull the image that passed CI
-        run: docker pull ${{ needs.build-and-push-ecr-image.outputs.image }}
+        run: |
+          IMAGE="${{ steps.login-ecr.outputs.registry }}/eggshell-diagnostics:${{ github.sha }}"
+          docker pull $IMAGE
 
       - name: Record the currently running image for rollback
         id: previous
@@ -148,6 +150,7 @@ jobs:
 
       - name: Replace the running container
         run: |
+          IMAGE="${{ steps.login-ecr.outputs.registry }}/eggshell-diagnostics:${{ github.sha }}"
           docker rm -f $CONTAINER 2>/dev/null || true
           docker run -d --name $CONTAINER --restart unless-stopped \
             -p $HOST_PORT:8000 \
@@ -155,7 +158,7 @@ jobs:
             -e TORCH_NUM_THREADS=2 \
             -e GUNICORN_THREADS=4 \
             --memory=3g \
-            ${{ needs.build-and-push-ecr-image.outputs.image }}
+            $IMAGE
 
       - name: Wait until the models are loaded
         id: ready
