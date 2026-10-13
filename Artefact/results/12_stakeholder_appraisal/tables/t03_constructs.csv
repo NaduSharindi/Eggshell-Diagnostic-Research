@@ -1,0 +1,5 @@
+construct,items,mean,sd,ci_low,ci_high,pct_agree,cronbach_alpha
+Perceived usefulness,5,3.56,0.74,3.03,4.09,40.0,0.97
+Ease of use and fit,4,3.3,0.63,2.85,3.75,32.5,0.81
+Trust and credibility,3,3.33,0.44,3.02,3.65,30.0,0.71
+Behavioural intention,3,3.63,0.76,3.09,4.18,43.3,0.55

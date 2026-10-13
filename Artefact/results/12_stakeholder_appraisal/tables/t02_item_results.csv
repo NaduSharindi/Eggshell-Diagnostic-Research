@@ -1,0 +1,16 @@
+item,construct,statement,n,mean,sd,median,pct_agree,pct_disagree
+Q1,Perceived usefulness,This approach would help us find micro-cracks that are currently being m,10,3.5,0.71,3.0,40.0,0.0
+Q2,Perceived usefulness,"Knowing the crack type (hairline, star or network) would be useful in my",10,3.6,0.84,3.0,40.0,0.0
+Q3,Perceived usefulness,Knowing whether the likely cause is shell quality or handling would help,10,3.5,0.71,3.0,40.0,0.0
+Q4,Perceived usefulness,This approach like this could reduce hatching-egg losses on our farm.,10,3.7,0.95,3.0,40.0,0.0
+Q5,Perceived usefulness,The batch report would be useful when discussing problems with my team o,10,3.5,0.71,3.0,40.0,0.0
+Q6,Ease of use and fit,The information of this approach shows is easy to understand.,10,3.5,0.85,3.0,30.0,0.0
+Q7,Ease of use and fit,Our staff could learn to use something like this without much training.,10,3.1,0.74,3.0,30.0,20.0
+Q8,Ease of use and fit,Photographing each egg over a candling light would fit into our current ,10,2.9,0.74,3.0,20.0,30.0
+Q9,Ease of use and fit,"The amount of information on screen is about right, not too much and not",10,3.7,0.82,3.5,50.0,0.0
+Q10,Trust and credibility,I would trust this approach when it says an egg is cracked.,10,3.4,0.7,3.0,30.0,0.0
+Q11,Trust and credibility,The causes it suggests match what I would conclude from my own experienc,10,3.2,0.42,3.0,20.0,0.0
+Q12,Trust and credibility,The actions it recommends are things we could realistically carry out.,10,3.4,0.52,3.0,40.0,0.0
+Q13,Behavioural intention,"If this were available, I would want to try it on our farm.",10,3.7,1.34,3.5,50.0,10.0
+Q14,Behavioural intention,I would prefer this to how we check eggs now.,10,3.2,0.79,3.0,20.0,10.0
+Q15,Behavioural intention,"A future automated version, with a camera on the egg belt and no manual ",10,4.0,0.94,4.0,60.0,0.0
